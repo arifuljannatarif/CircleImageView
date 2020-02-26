@@ -1,0 +1,6 @@
+<!--
+  ~ Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 2/26/20 9:40 AM
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.circleimageview" />
