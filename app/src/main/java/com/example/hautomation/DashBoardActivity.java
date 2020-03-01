@@ -6,5 +6,7 @@ package com.example.hautomation;
 
 import android.app.Activity;
 
-public class DashBoardActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class DashBoardActivity extends AppCompatActivity {
 }
