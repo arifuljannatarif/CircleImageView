@@ -1,0 +1,13 @@
+<!--
+  ~ Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 3/1/20 10:57 AM
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24.0"
+        android:viewportHeight="24.0">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M8.59,16.34l4.58,-4.59 -4.58,-4.59L10,5.75l6,6 -6,6z"/>
+</vector>

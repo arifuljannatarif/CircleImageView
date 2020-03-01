@@ -1,8 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 2/26/20 8:44 AM
   -->
 
 <resources>
     <dimen name="default_rounded_radious">10dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="profile_image_dimention">130dp</dimen>
+    <dimen name="custom_edittext_padding">8dp</dimen>
+    <dimen name="dashboaritem_corner">6dp</dimen>
+    <dimen name="txt_small">12sp</dimen>
+    <dimen name="txt_very_small">10sp</dimen>
+    <dimen name="txt_medium">16sp</dimen>
+    <dimen name="txt_large">20sp</dimen>
+    <dimen name="recycler_card_corner">3dp</dimen>
 </resources>
