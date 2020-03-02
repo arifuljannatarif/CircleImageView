@@ -18,16 +18,13 @@ public abstract class BaseOvservableViewMvc<ListenserType> extends BaseViewMvc
     private Set<ListenserType> mListensers=new HashSet<>();
     @Override
     public void registerListener(ListenserType listenserType) {
-        Log.d("debugging","Listener set");
         mListensers.add(listenserType);
     }
     @Override
     public void unregisterListener(ListenserType listenserType) {
-        Log.d("debugging","Listener removed");
         mListensers.remove(listenserType);
     }
     protected Set<ListenserType> getListensers(){
-        Log.d("debugging","returning listener set");
         return Collections.unmodifiableSet(mListensers);
     }
 

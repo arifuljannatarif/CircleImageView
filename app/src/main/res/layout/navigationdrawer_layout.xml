@@ -3,16 +3,68 @@
   ~ Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 2/28/20 9:11 AM
   -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@color/red"
+    android:background="@color/off_white"
     android:layout_height="match_parent">
-    <View
-        android:background="@drawable/gradient"
+    <RelativeLayout
+        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="250dp"/>
+        android:layout_height="250dp">
+        <com.example.circleimageview.CircleImageView
+            app:strokeColor="@color/white"
+            app:strokeWidth="2dp"
+            android:id="@+id/user_image"
+            android:src="@drawable/peaple"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_marginHorizontal="15dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_large"
+            android:layout_below="@id/user_image"
+            android:textStyle="bold"
+            android:text="Jamil Ahmed chowdhury"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="@color/white"
+            android:layout_alignStart="@id/user_name"
+            android:text="User@gmail.com"
+            android:textSize="@dimen/txt_medium"
+            android:layout_below="@id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/setting"
+            android:clickable="true"
+            android:background="@drawable/selectable_icon_bg"
+            android:backgroundTint="@color/red"
+            android:tint="@color/white"
+            android:padding="10sp"
+            android:layout_margin="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_settings_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_toLeftOf="@id/setting"
+            android:clickable="true"
+            android:background="@drawable/selectable_icon_bg"
+            android:backgroundTint="@color/red"
+            android:tint="@color/white"
+            android:padding="10sp"
+            android:layout_alignTop="@id/setting"
+            android:src="@drawable/ic_exit_to_app_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
     <ListView
         android:id="@+id/drawer_listview"
         android:layout_width="match_parent"

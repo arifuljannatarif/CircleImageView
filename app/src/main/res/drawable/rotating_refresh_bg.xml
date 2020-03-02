@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 3/2/20 7:55 AM
+  -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <rotate android:fromDegrees="0"
+            android:toDegrees="180"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:drawable="@drawable/ic_refresh_black_24dp"
+            />
+    </item>
+    <item >
+        <rotate android:fromDegrees="180"
+            android:toDegrees="0"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:drawable="@drawable/ic_refresh_black_24dp"/>
+    </item>
+</selector>

@@ -4,15 +4,18 @@
 
 package com.example.hautomation.fragments.recenttransaction;
 
+import android.view.View;
+
 import com.example.hautomation._enums.SortyTypes;
 import com.example.hautomation.common.ObserVableViewMvc;
 
 public interface RecentTransactionMvc extends ObserVableViewMvc< RecentTransactionMvc.Listener> {
     interface Listener {
         //pass ui interaction to the ui via this listener
-        public void refreshTransactions();
-        public Void sortTransaction(SortyTypes type);
-        public void showProgressbar(boolean state);
+         void refreshTransactions();
+         Void sortTransaction(SortyTypes type);
+         void showProgressbar(boolean state);
+        void showSortMenu(View reference);
     }
     //write available ui update method here
     public void showProgressbar(boolean state);

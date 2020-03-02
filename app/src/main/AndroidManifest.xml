@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".transactions.TransactionActivity"></activity>
         <activity
-            android:name=".Profile"
+            android:name=".profile.Profile"
             android:label="@string/title_activity_profile" />
         <activity android:name=".dashboard.DashBoardActivity">
             <intent-filter>

@@ -5,44 +5,50 @@
 package com.example.hautomation.transactions;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.widget.Toast;
 
+import com.example.hautomation.R;
 import com.example.hautomation.common.BaseActivity;
+import com.example.hautomation.fragments.recenttransaction.RecentTransactionFragent;
 
 import java.util.TimerTask;
 
-public class TransactionActivity extends BaseActivity implements TransactionRecyclerADapter.ItemClickListener {
+public class TransactionActivity extends BaseActivity implements TransactionViewMVC.Listener{
     TransactionViewMVC viewMVC;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewMVC=new TransactionViewMVCImplementation(LayoutInflater.from(this),null);
-        viewMVC.registerListener(this);
         setContentView(viewMVC.getRootView());
     }
     @Override
     protected void onStart() {
         super.onStart();
-        fetchItems();
+        addFragmentTocontainer(new RecentTransactionFragent(), R.id.fragment_container);
     }
-    private void fetchItems() {
-        viewMVC.showProgressbar(true);
-        viewMVC.showitems(false);
+    @Override
+    public RecentTransactionFragent getCurrentFragment() {
+        return  ((RecentTransactionFragent)(getSupportFragmentManager().findFragmentById(R.id.fragment_container)));
+    }
+    @Override
+    public void addFragmentTocontainer(Fragment fragment, int containerID) {
+        getSupportFragmentManager().beginTransaction().replace(containerID,fragment).commit();
+    }
+    @Override
+    public void onrefresh(boolean isrefreshing) {
+        getCurrentFragment().showProgressbar(true);
+        viewMVC.setSwiperefreshing(false);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                viewMVC.showProgressbar(false);
-                viewMVC.showitems(true);
+                getCurrentFragment().showProgressbar(false);
             }
-        },10000);
-    }
+        },3000);
 
-    @Override
-    public void onItemClick(int pos) {
-        Toast.makeText(this,"Item clicked "+pos,Toast.LENGTH_SHORT).show();
     }
 }

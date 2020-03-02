@@ -5,10 +5,16 @@
 package com.example.hautomation.dashboard;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -17,11 +23,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.hautomation.R;
+import com.example.hautomation._enums.Navigations;
+import com.example.hautomation.adapters.DashBoardmenuListAdapter;
 import com.example.hautomation.common.BaseOvservableViewMvc;
+import com.example.hautomation.profile.Profile;
+import com.example.hautomation.utils.MenuModel;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,6 +44,9 @@ public class DashBoardViewMvcImplementation extends BaseOvservableViewMvc<DashBo
     Toolbar toolbar;
     AppBarLayout appBarLayout;
     SwipeRefreshLayout swipeRefreshLayout;
+    ListView drawerListview;
+    private DashBoardmenuListAdapter drawerMenuAdapter;
+
     public DashBoardViewMvcImplementation(LayoutInflater inflater, ViewGroup parent){
         setmRootView(inflater.inflate(R.layout.activity_main,parent,false));
         try {
@@ -42,9 +56,18 @@ public class DashBoardViewMvcImplementation extends BaseOvservableViewMvc<DashBo
         }
         initViews();
     }
+    @Override
     public void initViews() {
         toolbar=findViewById(R.id.toolbar);
         drawerLayout=findViewById(R.id.drawer_layout);
+        drawerListview=findViewById(R.id.drawer_listview);
+        drawerListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                for(Listener listener:getListensers())
+                    listener.changeActivity(drawerMenuAdapter.getItem(position).getTarget());
+            }
+        });
         navigationView=findViewById(R.id.nav_view);
         swipeRefreshLayout=findViewById(R.id.swiperefresh);
         swipeRefreshLayout.setColorSchemeColors(Color.RED,Color.BLUE,Color.YELLOW,Color.LTGRAY);
@@ -52,7 +75,6 @@ public class DashBoardViewMvcImplementation extends BaseOvservableViewMvc<DashBo
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Log.d("debugging","refreshing");
                 for (Listener listener:getListensers())
                     listener.onswipeRefresh(swipeRefreshLayout.isRefreshing());
             }
@@ -85,9 +107,11 @@ public class DashBoardViewMvcImplementation extends BaseOvservableViewMvc<DashBo
     @Override
     public void showProgressbar(boolean state) {
     }
+
+
+
     private void setUpToolbar() {
-        Set<Listener> mlisteners = getListensers();
-        for(Listener listener:mlisteners){
+        for(Listener listener:getListensers()){
             listener.setToolbar(toolbar);
             listener.setToolbarTitle("Home");
         }
@@ -97,6 +121,10 @@ public class DashBoardViewMvcImplementation extends BaseOvservableViewMvc<DashBo
         drawerToggle.setDrawerIndicatorEnabled(true);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
+        drawerMenuAdapter=new DashBoardmenuListAdapter(getContext(),android.R.layout.simple_dropdown_item_1line);
+        drawerListview.setAdapter(drawerMenuAdapter);
     }
+
+
 
 }

@@ -7,36 +7,53 @@ package com.example.hautomation.dashboard;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 
 import com.example.hautomation.R;
+import com.example.hautomation._enums.Navigations;
 import com.example.hautomation.fragments.recenttransaction.RecentTransactionFragent;
+import com.example.hautomation.profile.Profile;
+import com.example.hautomation.transactions.TransactionActivity;
 
 public class DashBoardActivity extends AppCompatActivity implements DashBoardViewMvc.Listener {
     DashBoardViewMvc viewMvc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //setTheme(R.style.AppThemeDark);
         super.onCreate(savedInstanceState);
         viewMvc=new DashBoardViewMvcImplementation(LayoutInflater.from(this),null);
         setContentView(viewMvc.getRootView());
     }
+
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void onStart() {
+        super.onStart();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container,new RecentTransactionFragent())
                 .commit();
-       /* new Handler().postDelayed(new Runnable() {
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        /*new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(DashBoardActivity.this, TransactionActivity.class));
+                startActivity(new Intent(DashBoardActivity.this, Profile.class));
             }
         },1000);*/
+    }
+
+    @Override
+    public RecentTransactionFragent getCurrentFragment() {
+        return  ((RecentTransactionFragent)(getSupportFragmentManager().findFragmentById(R.id.fragment_container)));
     }
 
     @Override
@@ -52,8 +69,8 @@ public class DashBoardActivity extends AppCompatActivity implements DashBoardVie
     public void onswipeRefresh(boolean isrefreshing) {
         viewMvc.showProgressbar(true);
         viewMvc.setSwiperefreshing(false);
-        ((RecentTransactionFragent)(getSupportFragmentManager().findFragmentById(R.id.fragment_container))).showProgressbar(true);
-        new Handler().postDelayed(new Runnable() {
+        getCurrentFragment().showProgressbar(true);
+       new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 ((RecentTransactionFragent)(getSupportFragmentManager().findFragmentById(R.id.fragment_container))).showProgressbar(false);
@@ -76,8 +93,22 @@ public class DashBoardActivity extends AppCompatActivity implements DashBoardVie
     }
 
     @Override
-    public void fragmentTransaction() {
-
+    public void changeActivity(Navigations target) {
+        Intent intent = null;
+        switch(target){
+            case PROFILE:
+                intent=new Intent(this, Profile.class);
+                break;
+            case DASHBOARD:
+                break;
+            case ADD_NEW_USER:
+                break;
+            case TRANSACTIONS:
+                intent=new Intent(this,TransactionActivity.class);
+                break;
+        }
+        if(intent!=null)
+            startActivity(intent);
     }
 
 }

@@ -4,9 +4,17 @@
 
 package com.example.hautomation.transactions;
 
-import com.example.hautomation.common.ObserVableViewMvc;
+import androidx.fragment.app.Fragment;
 
-interface TransactionViewMVC extends ObserVableViewMvc<TransactionRecyclerADapter.ItemClickListener> {
-    void showProgressbar(boolean state);
-    void showitems(boolean b);
+import com.example.hautomation.common.ObserVableViewMvc;
+import com.example.hautomation.dashboard.DashBoardViewMvc;
+import com.example.hautomation.fragments.recenttransaction.RecentTransactionFragent;
+
+interface TransactionViewMVC extends ObserVableViewMvc<TransactionViewMVC.Listener> {
+    interface Listener{
+        void addFragmentTocontainer(Fragment fragment,int containerID);
+        RecentTransactionFragent getCurrentFragment();
+        void onrefresh(boolean isrefreshing);
+    }
+    void setSwiperefreshing(boolean b);
 }

@@ -16,47 +16,33 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.hautomation.R;
 import com.example.hautomation.common.BaseOvservableViewMvc;
 
-public class TransactionViewMVCImplementation extends BaseOvservableViewMvc<TransactionRecyclerADapter.ItemClickListener>
-        implements TransactionViewMVC, TransactionRecyclerADapter.ItemClickListener,SwipeRefreshLayout.OnRefreshListener {
+import java.util.logging.Handler;
+
+public class TransactionViewMVCImplementation extends BaseOvservableViewMvc<TransactionViewMVC.Listener>
+        implements TransactionViewMVC, SwipeRefreshLayout.OnRefreshListener {
     SwipeRefreshLayout swipeRefreshLayout;
-    RecyclerView recyclerView;
     ProgressBar progressBar;
-    TransactionRecyclerADapter transactionADapter;
     public TransactionViewMVCImplementation(LayoutInflater inflater, ViewGroup parent) {
         setmRootView(inflater.inflate(R.layout.activity_transaction,parent,false));
+        try {
+            registerListener((Listener) getContext());
+        }catch (Exception e){
+            throw new IllegalArgumentException("parent activity must implement interface "+TransactionViewMVC.Listener.class);
+        }
         initViews();
     }
     public void initViews() {
-        recyclerView=findViewById(R.id.recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        transactionADapter=new TransactionRecyclerADapter(getContext(),this);
-        recyclerView.setAdapter(transactionADapter);
-        progressBar=findViewById(R.id.progressbar);
         swipeRefreshLayout=findViewById(R.id.swiperefresh);
         swipeRefreshLayout.setOnRefreshListener(this);
     }
-    @Override
-    public void showProgressbar(boolean state) {
-        progressBar.setVisibility(state?View.VISIBLE:View.GONE);
-    }
+
     @Override
     public void onRefresh() {
-        for(TransactionRecyclerADapter.ItemClickListener listener:getListensers()){
-
-        }
+        for(Listener listener:getListensers())
+            listener.onrefresh(swipeRefreshLayout.isRefreshing());
     }
-
     @Override
-    public void showitems(boolean b) {
-        recyclerView.setVisibility(b?View.VISIBLE:View.GONE);
+    public void setSwiperefreshing(boolean state) {
+        swipeRefreshLayout.setRefreshing(state);
     }
-
-    @Override
-    public void onItemClick(int pos) {
-        for(TransactionRecyclerADapter.ItemClickListener listener:getListensers()){
-            listener.onItemClick(pos);
-        }
-    }
-
-
 }

@@ -6,14 +6,12 @@
     android:background="@drawable/gradient"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile">
+    tools:context=".profile.Profile">
     <com.google.android.material.appbar.AppBarLayout
         android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            app:contentScrim="@color/colorPrimary"
-            app:statusBarScrim="@color/colorAccent"
             app:collapsedTitleGravity="start"
             app:expandedTitleTextAppearance="@color/white"
             app:expandedTitleGravity="bottom|start"
@@ -29,12 +27,17 @@
                     android:src="@drawable/peaple"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
-
-                <com.example.circleimageview.CircleImageView
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/peaple"
-                    android:layout_width="@dimen/profile_image_dimention"
-                    android:layout_height="@dimen/profile_image_dimention"/>
+                <ImageButton
+                    android:clickable="true"
+                    android:background="@drawable/selectable_icon_bg"
+                    android:elevation="6dp"
+                    android:tint="@color/white"
+                    android:layout_margin="10sp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_photo_camera_black_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
             </RelativeLayout>
             <androidx.appcompat.widget.Toolbar
                 app:layout_collapseMode="pin"
@@ -60,10 +63,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
+                    android:padding="6dp"
+                    android:clickable="true"
+                    android:id="@+id/profile_edit"
+                    android:background="@drawable/selectable_icon_bg"
                     android:src="@drawable/ic_edit_black_24dp"
                     android:layout_gravity="end"
                     android:gravity="end"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:padding="0dp"
+                    style="@android:style/Widget.Material.Spinner.Underlined"
+                    android:id="@+id/user_typeSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:padding="6dp"
+                    android:text="User Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/profile_user_name"
+                    android:singleLine="true"
+                    android:hint="User Name"
+
+                    android:padding="@dimen/custom_edittext_padding"
+                    android:background="@drawable/rounded_border"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
                     android:padding="6dp"
@@ -71,22 +98,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <EditText
+                    android:id="@+id/profile_name"
                     android:singleLine="true"
                     android:hint="Name"
-                    android:drawableRight="@drawable/ic_cancel_black_24dp"
-                    android:padding="@dimen/custom_edittext_padding"
-                    android:background="@drawable/rounded_border"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:padding="6dp"
-                    android:text="Email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <EditText
-                    android:singleLine="true"
-                    android:hint="E-mail"
-                    android:drawableRight="@drawable/ic_cancel_black_24dp"
+
                     android:padding="@dimen/custom_edittext_padding"
                     android:background="@drawable/rounded_border"
                     android:layout_width="match_parent"
@@ -97,9 +112,52 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <EditText
+                    android:id="@+id/profile_mobile"
                     android:singleLine="true"
                     android:hint="Mobile"
-                    android:drawableRight="@drawable/ic_cancel_black_24dp"
+
+                    android:padding="@dimen/custom_edittext_padding"
+                    android:background="@drawable/rounded_border"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:padding="6dp"
+                    android:text="Institution"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/profile_institution"
+                    android:singleLine="true"
+                    android:hint="Instituion"
+
+                    android:padding="@dimen/custom_edittext_padding"
+                    android:background="@drawable/rounded_border"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:padding="6dp"
+                    android:text="Guardian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/profile_guardian"
+                    android:hint="Guardian"
+                    android:singleLine="true"
+
+                    android:padding="@dimen/custom_edittext_padding"
+                    android:background="@drawable/rounded_border"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:padding="6dp"
+                    android:text="Guardian contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/profile_guardian_mobile"
+                    android:hint="Guardian contact"
+                    android:singleLine="true"
+
                     android:padding="@dimen/custom_edittext_padding"
                     android:background="@drawable/rounded_border"
                     android:layout_width="match_parent"
@@ -110,9 +168,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <EditText
-                    android:singleLine="true"
+                    android:id="@+id/profile_address"
                     android:hint="Address"
-                    android:drawableRight="@drawable/ic_cancel_black_24dp"
+                    android:singleLine="true"
+
+                    android:padding="@dimen/custom_edittext_padding"
+                    android:background="@drawable/rounded_border"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:padding="6dp"
+                    android:text="Monthly fee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/profile_monthly_fee"
+                    android:hint="Monthly fee"
+                    android:singleLine="true"
+
                     android:padding="@dimen/custom_edittext_padding"
                     android:background="@drawable/rounded_border"
                     android:layout_width="match_parent"
@@ -123,30 +196,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <EditText
-                    android:hint="Reference"
+                    android:id="@+id/profile_reference"
+                    android:hint="Guardian contact"
                     android:singleLine="true"
-                    android:drawableRight="@drawable/ic_cancel_black_24dp"
-                    android:padding="@dimen/custom_edittext_padding"
-                    android:background="@drawable/rounded_border"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:padding="6dp"
-                    android:text="Name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <EditText
-                    android:singleLine="true"
-                    android:drawableRight="@drawable/ic_cancel_black_24dp"
+
                     android:padding="@dimen/custom_edittext_padding"
                     android:background="@drawable/rounded_border"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="800dp"/>
+
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 

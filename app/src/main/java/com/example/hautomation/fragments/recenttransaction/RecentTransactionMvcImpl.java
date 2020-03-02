@@ -7,6 +7,7 @@ package com.example.hautomation.fragments.recenttransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ public class RecentTransactionMvcImpl extends BaseOvservableViewMvc<RecentTransa
     RecyclerView recyclerView;
     TransactionRecyclerADapter recyclerADapter;
     ProgressBar progressBar;
+    ImageView sortbtn;
     public RecentTransactionMvcImpl(LayoutInflater inflater, ViewGroup parent) {
         setmRootView(inflater.inflate(R.layout.recent_transaction,parent,false));
         initViews();
@@ -35,6 +37,14 @@ public class RecentTransactionMvcImpl extends BaseOvservableViewMvc<RecentTransa
         recyclerADapter=new TransactionRecyclerADapter(getContext(),RecentTransactionMvcImpl.this);
         recyclerView.setAdapter(recyclerADapter);
         progressBar=findViewById(R.id.progressBar);
+        sortbtn=findViewById(R.id.recent_sort);
+        sortbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for(Listener listener:getListensers())
+                    listener.showSortMenu(sortbtn);
+            }
+        });
     }
 
     @Override

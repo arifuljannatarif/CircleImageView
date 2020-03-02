@@ -4,8 +4,11 @@
 
 package com.example.hautomation.dashboard;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 
+import com.example.hautomation._enums.Navigations;
 import com.example.hautomation.common.ObserVableViewMvc;
+import com.example.hautomation.fragments.recenttransaction.RecentTransactionFragent;
 
 public interface DashBoardViewMvc extends ObserVableViewMvc<DashBoardViewMvc.Listener> {
 
@@ -13,7 +16,8 @@ public interface DashBoardViewMvc extends ObserVableViewMvc<DashBoardViewMvc.Lis
         void onswipeRefresh(boolean isrefreshing);
         void setToolbar(Toolbar toolbar);
         void setToolbarTitle(String title);
-        void fragmentTransaction();
+        void changeActivity(Navigations target);
+        RecentTransactionFragent getCurrentFragment();
     }
     void setSwiperefreshing(boolean b);
     void refresh();
