@@ -46,7 +46,8 @@ public class TransactionActivity extends BaseActivity implements TransactionView
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                getCurrentFragment().showProgressbar(false);
+                if(getCurrentFragment()!=null)
+                    getCurrentFragment().showProgressbar(false);
             }
         },3000);
 

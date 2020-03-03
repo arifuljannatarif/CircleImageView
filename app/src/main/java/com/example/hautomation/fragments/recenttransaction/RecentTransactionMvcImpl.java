@@ -9,17 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.hautomation.R;
 import com.example.hautomation.common.BaseOvservableViewMvc;
-import com.example.hautomation.transactions.TransactionRecyclerADapter;
+import com.example.hautomation.adapters.transaction.TransactionRecyclerADapter;
 
 public class RecentTransactionMvcImpl extends BaseOvservableViewMvc<RecentTransactionMvc.Listener>
-        implements RecentTransactionMvc,TransactionRecyclerADapter.ItemClickListener{
+        implements RecentTransactionMvc{
     RecyclerView recyclerView;
     TransactionRecyclerADapter recyclerADapter;
     ProgressBar progressBar;
@@ -27,15 +24,18 @@ public class RecentTransactionMvcImpl extends BaseOvservableViewMvc<RecentTransa
     public RecentTransactionMvcImpl(LayoutInflater inflater, ViewGroup parent) {
         setmRootView(inflater.inflate(R.layout.recent_transaction,parent,false));
         initViews();
+        initRecycler(inflater);
     }
 
+    private void initRecycler(LayoutInflater inflater) {
+        recyclerADapter=new TransactionRecyclerADapter(getContext(),RecentTransactionMvcImpl.this);
+        recyclerView.setAdapter(recyclerADapter);
+    }
     @Override
     public void initViews() {
         recyclerView=findViewById(R.id.recent_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        recyclerADapter=new TransactionRecyclerADapter(getContext(),RecentTransactionMvcImpl.this);
-        recyclerView.setAdapter(recyclerADapter);
         progressBar=findViewById(R.id.progressBar);
         sortbtn=findViewById(R.id.recent_sort);
         sortbtn.setOnClickListener(new View.OnClickListener() {
@@ -46,12 +46,6 @@ public class RecentTransactionMvcImpl extends BaseOvservableViewMvc<RecentTransa
             }
         });
     }
-
-    @Override
-    public void onItemClick(int pos) {
-        Toast.makeText(getContext(),"Item clicked",Toast.LENGTH_SHORT).show();
-    }
-
     @Override
     public void showProgressbar(boolean state) {
         if(progressBar!=null)

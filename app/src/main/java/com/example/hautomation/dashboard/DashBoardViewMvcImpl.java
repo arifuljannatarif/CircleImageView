@@ -5,17 +5,12 @@
 package com.example.hautomation.dashboard;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
@@ -23,20 +18,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.hautomation.R;
-import com.example.hautomation._enums.Navigations;
 import com.example.hautomation.adapters.DashBoardmenuListAdapter;
 import com.example.hautomation.common.BaseOvservableViewMvc;
-import com.example.hautomation.profile.Profile;
-import com.example.hautomation.utils.MenuModel;
 import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-
-public class DashBoardViewMvcImplementation extends BaseOvservableViewMvc<DashBoardViewMvc.Listener>
+public class DashBoardViewMvcImpl extends BaseOvservableViewMvc<DashBoardViewMvc.Listener>
         implements DashBoardViewMvc {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -47,7 +34,7 @@ public class DashBoardViewMvcImplementation extends BaseOvservableViewMvc<DashBo
     ListView drawerListview;
     private DashBoardmenuListAdapter drawerMenuAdapter;
 
-    public DashBoardViewMvcImplementation(LayoutInflater inflater, ViewGroup parent){
+    public DashBoardViewMvcImpl(LayoutInflater inflater, ViewGroup parent){
         setmRootView(inflater.inflate(R.layout.activity_main,parent,false));
         try {
             registerListener((Listener) getContext());
@@ -64,6 +51,7 @@ public class DashBoardViewMvcImplementation extends BaseOvservableViewMvc<DashBo
         drawerListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                drawerLayout.closeDrawers();
                 for(Listener listener:getListensers())
                     listener.changeActivity(drawerMenuAdapter.getItem(position).getTarget());
             }

@@ -16,7 +16,6 @@ public abstract class BaseViewMvc implements ViewMvc{
     public void setmRootView(View mRootView) {
         this.mRootView = mRootView;
     }
-
     protected   <T extends View> T findViewById(int id) {
         return getRootView().findViewById(id);
     }

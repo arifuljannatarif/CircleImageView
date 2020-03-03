@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 3/2/20 10:43 PM
+ * Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 3/3/20 12:22 AM
  */
 
-package com.example.hautomation.utils;
+package com.example.hautomation.models;
 
 import androidx.appcompat.app.AppCompatActivity;
 

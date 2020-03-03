@@ -7,8 +7,6 @@ package com.example.hautomation.dashboard;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,7 +26,7 @@ public class DashBoardActivity extends AppCompatActivity implements DashBoardVie
     protected void onCreate(Bundle savedInstanceState) {
         //setTheme(R.style.AppThemeDark);
         super.onCreate(savedInstanceState);
-        viewMvc=new DashBoardViewMvcImplementation(LayoutInflater.from(this),null);
+        viewMvc=new DashBoardViewMvcImpl(LayoutInflater.from(this),null);
         setContentView(viewMvc.getRootView());
     }
 

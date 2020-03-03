@@ -6,19 +6,17 @@ package com.example.hautomation.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.hautomation.R;
-import com.example.hautomation.utils.DashboardMenuController;
-import com.example.hautomation.utils.MenuModel;
+import com.example.hautomation.dashboard.DashboardMenuController;
+import com.example.hautomation.models.MenuModel;
 
 import java.util.ArrayList;
 
