@@ -4,12 +4,7 @@
 
 package com.example.hautomation.models;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.hautomation._enums.Navigations;
-import com.example.hautomation.profile.Profile;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 public class MenuModel {
     String title;

@@ -20,26 +20,29 @@ import java.util.List;
 
 public class TransactionRecyclerADapter extends RecyclerView.Adapter<TransactionRecyclerADapter.MyviewHolder>
         implements TransactionItemViewMvc.Listener{
-
+    public static final int TYPE_ITEM=0,TYPE_DATE=1;
     private ArrayList<TransactionModel> items;
+    private ArrayList<TransactionModel> tempItems;
     Context mContext;
     RecentTransactionMvc.Listener mListener;
 
     public TransactionRecyclerADapter(Context mContext, RecentTransactionMvcImpl recentTransactionMvc) {
         this.mContext = mContext;
         items=new ArrayList<>();
+        tempItems=new ArrayList<>();
     }
 
     public TransactionRecyclerADapter(Context context, RecentTransactionMvc.Listener listener) {
         this.mContext=context;
         items=new ArrayList<>();
+        tempItems=new ArrayList<>();
         mListener=listener;
     }
 
     @NonNull
     @Override
     public MyviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        TransactionItemViewMvc mvc=new TransactionItemViewImpl(LayoutInflater.from(mContext),parent);
+        TransactionItemViewMvc mvc=new TransactionItemViewImpl(LayoutInflater.from(mContext),parent,viewType);
         mvc.registerListener(this);
         return new MyviewHolder(mvc);
     }
@@ -52,15 +55,14 @@ public class TransactionRecyclerADapter extends RecyclerView.Adapter<Transaction
     private TransactionModel getItem(int position) {
         return position<items.size()?items.get(position):null;
     }
-
     @Override
     public int getItemCount() {
-        return 5;
+        return 120;
     }
-
     @Override
     public int getItemViewType(int position) {
-        return super.getItemViewType(position);
+
+        return position%6==0?TYPE_DATE:TYPE_ITEM;
     }
 
     @Override
@@ -82,6 +84,17 @@ public class TransactionRecyclerADapter extends RecyclerView.Adapter<Transaction
     public void onTransactionClicked(TransactionModel model) {
 
     }
+
+    @Override
+    public void addItem(TransactionModel model) {
+
+    }
+
+    @Override
+    public void performSearch(String key) {
+
+    }
+
     static class MyviewHolder extends RecyclerView.ViewHolder{
         TransactionItemViewMvc viewMvc;
         public MyviewHolder(@NonNull TransactionItemViewMvc itemView) {

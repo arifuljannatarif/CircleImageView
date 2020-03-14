@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 3/7/20 11:04 PM
+  -->
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:cardElevation="1dp"
+    android:layout_marginLeft="2dp"
+    android:layout_marginRight="2dp"
+    android:layout_marginBottom="1dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.example.circleimageview.CircleImageView
+            android:layout_margin="8dp"
+            android:id="@+id/user_image"
+            android:src="@drawable/peaple"
+            android:layout_width="@dimen/user_avatar_dimen"
+            android:layout_height="@dimen/user_avatar_dimen"/>
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:layout_toRightOf="@id/user_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textFontWeight="600"
+                android:textSize="@dimen/list_item_title"
+                android:layout_alignBottom="@id/user_image"
+                android:layout_alignTop="@id/user_image"
+                android:text="@string/sample_name"
+                android:layout_toRightOf="@id/user_image"
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textSize="@dimen/paragraph"
+                android:layout_alignStart="@id/user_name"
+
+                android:layout_below="@id/user_name"
+                android:text="@string/sample_info"
+                android:id="@+id/user_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

@@ -1,15 +1,14 @@
 /*
- * Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 3/1/20 12:41 PM
+ * Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 3/8/20 12:50 AM
  */
 
-package com.example.hautomation.fragments;
+package com.example.hautomation.fragments.bottomsheet;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -22,11 +21,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.ArrayList;
 
-public class BottomDialogFragment extends BottomSheetDialogFragment {
+public class BottomSheetMonthSelector extends BottomSheetDialogFragment {
     public interface MonthSelected{
-        public void onMonthSelected(String month);
+         void onMonthSelected(String month);
     }
-    public  int x;
     private MonthSelected monthSelected;
 
     public void setMonthSelected(MonthSelected monthSelected) {
@@ -44,17 +42,17 @@ public class BottomDialogFragment extends BottomSheetDialogFragment {
     Context mContext;
     ListView listView;
 
-    public BottomDialogFragment(Context mContext) {
+    public BottomSheetMonthSelector(Context mContext) {
         this.mContext = mContext;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(BottomDialogFragment.STYLE_NO_FRAME,R.style.AppBottomSheetDialogTheme);
+        setStyle(BottomSheetMonthSelector.STYLE_NO_FRAME,R.style.AppBottomSheetDialogTheme);
     }
     public static BottomSheetDialogFragment getinstance(Context c){
-        return new BottomDialogFragment(c);
+        return new BottomSheetMonthSelector(c);
     }
     @Nullable
     @Override

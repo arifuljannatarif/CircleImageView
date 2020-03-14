@@ -6,6 +6,7 @@ package com.example.hautomation.fragments.recenttransaction;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,12 +14,17 @@ import android.view.ViewGroup;
 import android.widget.PopupMenu;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+
 import com.example.hautomation.R;
 import com.example.hautomation._enums.SortyTypes;
+import com.example.hautomation.fragments.bottomsheet.addexpense.AddnewExpense;
+import com.example.hautomation.fragments.RefreshFragment;
+import com.example.hautomation.models.TransactionModel;
 
-public class RecentTransactionFragent extends Fragment implements RecentTransactionMvc.Listener{
+public class RecentTransactionFragent extends RefreshFragment implements RecentTransactionMvc.Listener{
     RecentTransactionMvc mVcView;
+    public static final String SHOW_TOPBAR="topbar";
+    boolean showTopbar=false;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,16 +32,17 @@ public class RecentTransactionFragent extends Fragment implements RecentTransact
         try {
             mVcView.registerListener(RecentTransactionFragent.this);
         }catch (Exception e){
-
             throw new IllegalArgumentException("Your  activity or controller must implement "+RecentTransactionMvc.Listener.class);
         }
+        getBundleData(this.getArguments());
+        showTopmenu(showTopbar);
         return mVcView.getRootView();
     }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-
+    private void getBundleData(Bundle bundle) {
+        Log.d("debugging","retriving "+(bundle==null?"null ":"bundle"));
+        if(bundle==null)return;
+        showTopbar=bundle.getBoolean(SHOW_TOPBAR,false);
+        Log.d("debugging","retriving "+bundle==null?"null ":"bundle "+showTopbar);
     }
 
     @Override
@@ -64,6 +71,17 @@ public class RecentTransactionFragent extends Fragment implements RecentTransact
             }
         });
         popupMenu.show();
+        new AddnewExpense().show(getChildFragmentManager(),"add expense");
+    }
+
+    @Override
+    public void updatingItem(TransactionModel model) {
+
+    }
+
+    @Override
+    public void showTopmenu(boolean state) {
+        mVcView.showTopmenu(state);
     }
 
 }

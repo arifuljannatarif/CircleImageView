@@ -8,12 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".transactions.TransactionActivity"></activity>
+        android:theme="@style/AppThemeDark">
+        <activity android:name=".activity.transactions.TransactionActivity"></activity>
         <activity
-            android:name=".profile.Profile"
+            android:name=".activity.profile.Profile"
             android:label="@string/title_activity_profile" />
-        <activity android:name=".dashboard.DashBoardActivity">
+        <activity android:name=".activity.dashboard.DashBoardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

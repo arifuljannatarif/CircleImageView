@@ -2,12 +2,11 @@
  * Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 3/2/20 9:06 PM
  */
 
-package com.example.hautomation.profile;
+package com.example.hautomation.activity.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

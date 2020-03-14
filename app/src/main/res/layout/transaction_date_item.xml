@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 3/3/20 5:20 PM
+  -->
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:cardBackgroundColor="@color/black"
+    app:cardElevation="3dp"
+    app:cardCornerRadius="3dp"
+    android:layout_marginBottom="-3dp"
+    android:layout_marginTop="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_marginLeft="6dp"
+            android:id="@+id/transaction_dot"
+            android:layout_centerVertical="true"
+            android:background="@drawable/circle_shape"
+            android:backgroundTint="@color/colorAccent"
+            android:layout_width="@dimen/transaction_dot_dimension"
+            android:layout_height="@dimen/transaction_dot_dimension"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout"
+            android:layout_toRightOf="@id/transaction_dot"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:paddingTop="3dp"
+                android:paddingBottom="6dp"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/transCtion_date"
+                android:text="@string/sample_date"
+                android:textSize="@dimen/txt_small_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

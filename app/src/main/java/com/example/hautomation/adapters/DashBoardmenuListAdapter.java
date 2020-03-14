@@ -15,7 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.hautomation.R;
-import com.example.hautomation.dashboard.DashboardMenuController;
+import com.example.hautomation.activity.dashboard.DashboardMenuController;
 import com.example.hautomation.models.MenuModel;
 
 import java.util.ArrayList;

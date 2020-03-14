@@ -8,5 +8,6 @@
     android:shape="rectangle">
     <corners android:topLeftRadius="@dimen/default_rounded_radious"
         android:topRightRadius="@dimen/default_rounded_radious"/>
+    <solid android:color="?android:windowBackground"/>
 
 </shape>

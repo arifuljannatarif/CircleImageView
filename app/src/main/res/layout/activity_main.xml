@@ -7,55 +7,60 @@
     android:layout_gravity="start"
     android:id="@+id/drawer_layout"
     android:layout_height="match_parent">
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swiperefresh"
+    <RelativeLayout
+        android:id="@+id/main_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swiperefresh"
             android:layout_width="match_parent"
-            android:background="@color/colorPrimary"
-            android:clickable="true"
-            android:fitsSystemWindows="true"
             android:layout_height="match_parent">
-            <com.google.android.material.appbar.AppBarLayout
-                android:id="@+id/appbar"
-                app:elevation="0dp"
-                android:background="@android:color/transparent"
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
-                <com.google.android.material.appbar.CollapsingToolbarLayout
-                    app:statusBarScrim="@color/colorAccent"
-                    app:expandedTitleGravity="center_horizontal|top"
-                    app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+                android:background="?colorPrimary"
+                android:clickable="true"
+                android:fitsSystemWindows="true"
+                android:layout_height="match_parent">
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/appbar"
+                    app:elevation="0dp"
+                    android:background="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.appbar.CollapsingToolbarLayout
+                        app:statusBarScrim="?colorPrimary"
+                        app:expandedTitleGravity="center_horizontal|top"
+                        app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <include layout="@layout/dashboard_cardview_layout"/>
+                        <androidx.appcompat.widget.Toolbar
+                            android:id="@+id/toolbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:background="?colorPrimary"
+                            app:layout_collapseMode="pin" />
+                    </com.google.android.material.appbar.CollapsingToolbarLayout>
+                </com.google.android.material.appbar.AppBarLayout>
+                <FrameLayout
+                    android:id="@+id/fragment_container"
+                    android:background="@drawable/rounded_top"
+                    android:backgroundTint="?android:windowBackground"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <include layout="@layout/dashboard_cardview_layout"/>
-                    <androidx.appcompat.widget.Toolbar
-                        android:background="@color/green_light"
-                        android:id="@+id/toolbar"
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
-                        app:layout_collapseMode="pin"/>
-                </com.google.android.material.appbar.CollapsingToolbarLayout>
-            </com.google.android.material.appbar.AppBarLayout>
-            <FrameLayout
-                android:id="@+id/fragment_container"
-                android:background="@drawable/rounded_top"
-                android:backgroundTint="@color/off_white"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </FrameLayout>
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    <com.google.android.material.navigation.NavigationView
+                </FrameLayout>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </RelativeLayout>
+    <RelativeLayout
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true">
         <include layout="@layout/navigationdrawer_layout"/>
-    </com.google.android.material.navigation.NavigationView>
+    </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

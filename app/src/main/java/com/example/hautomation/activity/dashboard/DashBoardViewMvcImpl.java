@@ -2,7 +2,7 @@
  * Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 2/29/20 2:53 PM
  */
 
-package com.example.hautomation.dashboard;
+package com.example.hautomation.activity.dashboard;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -21,18 +21,17 @@ import com.example.hautomation.R;
 import com.example.hautomation.adapters.DashBoardmenuListAdapter;
 import com.example.hautomation.common.BaseOvservableViewMvc;
 import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.navigation.NavigationView;
 
 public class DashBoardViewMvcImpl extends BaseOvservableViewMvc<DashBoardViewMvc.Listener>
         implements DashBoardViewMvc {
     DrawerLayout drawerLayout;
-    NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
     Toolbar toolbar;
     AppBarLayout appBarLayout;
     SwipeRefreshLayout swipeRefreshLayout;
     ListView drawerListview;
     private DashBoardmenuListAdapter drawerMenuAdapter;
+    private SwipeRefreshLayout mainView;
 
     public DashBoardViewMvcImpl(LayoutInflater inflater, ViewGroup parent){
         setmRootView(inflater.inflate(R.layout.activity_main,parent,false));
@@ -45,6 +44,7 @@ public class DashBoardViewMvcImpl extends BaseOvservableViewMvc<DashBoardViewMvc
     }
     @Override
     public void initViews() {
+        swipeRefreshLayout=findViewById(R.id.swiperefresh);
         toolbar=findViewById(R.id.toolbar);
         drawerLayout=findViewById(R.id.drawer_layout);
         drawerListview=findViewById(R.id.drawer_listview);
@@ -54,10 +54,9 @@ public class DashBoardViewMvcImpl extends BaseOvservableViewMvc<DashBoardViewMvc
                 drawerLayout.closeDrawers();
                 for(Listener listener:getListensers())
                     listener.changeActivity(drawerMenuAdapter.getItem(position).getTarget());
+
             }
         });
-        navigationView=findViewById(R.id.nav_view);
-        swipeRefreshLayout=findViewById(R.id.swiperefresh);
         swipeRefreshLayout.setColorSchemeColors(Color.RED,Color.BLUE,Color.YELLOW,Color.LTGRAY);
         // swipeRefreshLayout.setProgressViewEndTarget(true,0);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -105,7 +104,23 @@ public class DashBoardViewMvcImpl extends BaseOvservableViewMvc<DashBoardViewMvc
         }
     }
     private void setupdrawer() {
-        drawerToggle=new ActionBarDrawerToggle((Activity) getContext(),drawerLayout,toolbar,R.string.drawer_open,R.string.drawer_close);
+        drawerToggle=new ActionBarDrawerToggle((Activity) getContext(),drawerLayout,toolbar,R.string.drawer_open,R.string.drawer_close){
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                View container = findViewById(R.id.swiperefresh);
+                container.setTranslationX(slideOffset * drawerView.getWidth());
+            }
+        };
         drawerToggle.setDrawerIndicatorEnabled(true);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();

@@ -1,26 +1,56 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
         <item name="colorAccent">@color/colorAccent</item>
-<!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
+        <item name="android:windowBackground">@color/off_white</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+        <!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
     </style>
-    <style name="AppThemeDark" parent="ThemeOverlay.AppCompat.Dark">
+    <style name="AppThemeDark" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="android:windowActionBar">false</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimaryDarkmode</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkDarkmode</item>
+        <item name="colorAccent">@color/colorAccentDark</item>
         <!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
     </style>
 
-    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">stateHidden|adjustResize|stateVisible</item>
     </style>
-    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/rounded_border</item>
+    <style name="AppModalStyle" parent="Theme.Design.BottomSheetDialog">
+        <!--        <item name="android:background">@drawable/rounded_top</item>-->
+
     </style>
+
+
+
+    <style name="addexpensespinnerstyle" parent="@style/Widget.AppCompat.Spinner">
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginRight">3dp</item>
+        <item name="android:dropDownWidth">@dimen/addexpense_spinner_width</item>
+        <item name="android:layout_marginBottom">2dp</item>
+    </style>
+
+    <style name="bottosheetTheme" parent="Theme.Design.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">?android:windowBackground</item>
+        <item name="android:windowSoftInputMode">stateHidden|adjustResize|stateVisible</item>
+    </style>
+
+
+    <style name="myEdittext_style" parent="@style/Widget.AppCompat.EditText">
+        <item name="android:singleLine">true</item>
+        <item name="android:backgroundTint">@color/red</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+    </style>
+
+
 </resources>

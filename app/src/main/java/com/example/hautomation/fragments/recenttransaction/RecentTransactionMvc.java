@@ -8,15 +8,26 @@ import android.view.View;
 
 import com.example.hautomation._enums.SortyTypes;
 import com.example.hautomation.common.ObserVableViewMvc;
+import com.example.hautomation.models.TransactionModel;
+
+import java.util.ArrayList;
 
 public interface RecentTransactionMvc extends ObserVableViewMvc< RecentTransactionMvc.Listener> {
     interface Listener {
         //pass ui interaction to the ui via this listener
-         void refreshTransactions();
-         Void sortTransaction(SortyTypes type);
-         void showProgressbar(boolean state);
+        void refreshTransactions();
+        Void sortTransaction(SortyTypes type);
+        void showProgressbar(boolean state);
         void showSortMenu(View reference);
+        void updatingItem(TransactionModel model);
+        void showTopmenu(boolean state);
     }
     //write available ui update method here
-    public void showProgressbar(boolean state);
+    void showProgressbar(boolean state);
+    void performSearch(String key);
+    void sortItems(SortyTypes sortyType,boolean ascending);
+    void updateItems(ArrayList<TransactionModel> list);
+    void clearAllItem();
+    void AddItem(TransactionModel model);
+    void showTopmenu(boolean state);
 }

@@ -12,4 +12,7 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="card_ratio">3:2</string>
+    <string name="sample_date">Tuesday, 25-April</string>
+    <string name="sample_name">Abdul batin mulla</string>
+    <string name="sample_info">ScholarseHome, class 9</string>
 </resources>

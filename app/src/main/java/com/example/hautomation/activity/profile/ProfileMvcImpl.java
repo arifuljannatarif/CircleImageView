@@ -2,7 +2,7 @@
  * Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 3/2/20 9:07 PM
  */
 
-package com.example.hautomation.profile;
+package com.example.hautomation.activity.profile;
 
 import android.text.InputType;
 import android.view.LayoutInflater;

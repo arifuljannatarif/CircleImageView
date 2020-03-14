@@ -28,4 +28,12 @@
     <color name="bg_color_1">#7C69A7</color>
     <color name="bg_color_2">#6EB9E2</color>
     <color name="profile_divider_color">#111</color>
+    <color name="add_expense_border_color">#3E808080</color>
+
+    //dark theme
+
+    <color name="colorPrimaryDarkmode">#742F2F</color>#DA5F5F
+    <color name="colorPrimaryDarkDarkmode">#633434</color>
+    <color name="colorAccentDark">#E9665F</color>
+    //dark theme end
 </resources>

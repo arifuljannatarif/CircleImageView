@@ -2,21 +2,17 @@
  * Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 2/29/20 10:50 AM
  */
 
-package com.example.hautomation.transactions;
+package com.example.hautomation.activity.transactions;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.hautomation.R;
 import com.example.hautomation.common.BaseOvservableViewMvc;
-
-import java.util.logging.Handler;
 
 public class TransactionViewMVCImplementation extends BaseOvservableViewMvc<TransactionViewMVC.Listener>
         implements TransactionViewMVC, SwipeRefreshLayout.OnRefreshListener {
@@ -34,6 +30,12 @@ public class TransactionViewMVCImplementation extends BaseOvservableViewMvc<Tran
     public void initViews() {
         swipeRefreshLayout=findViewById(R.id.swiperefresh);
         swipeRefreshLayout.setOnRefreshListener(this);
+        setupToolbar();
+    }
+
+    private void setupToolbar() {
+        for(Listener listener:getListensers())
+            listener.setUpToolbar((Toolbar) findViewById(R.id.toolbar),"Transaction");
     }
 
     @Override

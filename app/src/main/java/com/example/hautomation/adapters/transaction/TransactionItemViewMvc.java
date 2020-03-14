@@ -12,5 +12,8 @@ public interface TransactionItemViewMvc extends ObserVableViewMvc<TransactionIte
 
     interface Listener{
         void onTransactionClicked(TransactionModel model);
+        void addItem(TransactionModel model);
+
+        void performSearch(String key);
     }
 }

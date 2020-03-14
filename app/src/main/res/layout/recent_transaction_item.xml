@@ -1,61 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 2/29/20 10:45 AM
-  -->
-
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<com.daimajia.swipe.SwipeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="@dimen/recycler_card_corner"
     app:cardElevation="2dp"
-    android:layout_marginTop="3dp"
-    android:layout_marginLeft="4dp"
-    android:layout_marginRight="4dp"
+    app:cardCornerRadius="6dp"
+    app:clickToClose="true"
+    app:cardUseCompatPadding="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <RelativeLayout
-        android:padding="8dp"
+    <LinearLayout
+        android:gravity="end"
+        android:layout_gravity="end"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <TextView
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="Delete"
+            android:textColor="@color/white"
+            android:background="@color/red"
+            android:layout_width="@dimen/recycler_action_btn_width"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="View"
+            android:textColor="@color/white"
+            android:background="@color/green"
+            android:layout_width="@dimen/recycler_action_btn_width"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="Edit"
+            android:background="@color/gray"
+            android:layout_width="@dimen/recycler_action_btn_width"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:layout_marginRight="6dp"
-            android:layout_centerVertical="true"
-            android:id="@+id/item_icon"
-            android:src="@drawable/icon_ledger"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:textSize="@dimen/txt_medium"
-            android:layout_toLeftOf="@id/item_amount"
-            android:id="@+id/item_title"
-            android:text="this is a transactio title"
-            android:layout_toRightOf="@id/item_icon"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:text="this is the description writtent about an transacation"
-            android:textSize="@dimen/txt_small"
-            android:layout_below="@id/item_title"
-            android:layout_alignStart="@id/item_title"
-            android:layout_toLeftOf="@id/item_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_centerVertical="true"
-            android:textSize="@dimen/txt_large"
-            android:paddingLeft="20dp"
-            android:id="@+id/item_amount"
-            android:layout_alignParentRight="true"
-            android:text="$580"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:textSize="@dimen/txt_very_small"
-            android:text="/@arif"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:ignore="SmallSp" />
-    </RelativeLayout>
-</androidx.cardview.widget.CardView>
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/iconholderLayout"
+                    android:layout_alignTop="@id/id1"
+                    android:layout_alignBottom="@id/id1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginLeft="6dp"
+                        android:padding="8dp"
+                        android:background="@drawable/circle_shape"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/payment_type_icon"
+                        android:backgroundTint="@color/white"
+                        android:alpha="0.8"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/icon_income"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/id1"
+                    android:padding="8dp"
+                    android:layout_toRightOf="@id/iconholderLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/transaction_title"
+                        android:paddingHorizontal="10dp"
+                        android:layout_toLeftOf="@id/transaction_amount"
+                        android:textSize="@dimen/transaction_card_title_size"
+                        android:text="Transaction Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:paddingHorizontal="10dp"
+                        android:layout_below="@id/transaction_title"
+                        android:layout_toLeftOf="@id/transaction_amount"
+                        android:text="Any text about t he transaction that will show here "
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:textStyle="bold"
+                        android:textColor="@color/green"
+                        android:textSize="20dp"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/transaction_amount"
+                        android:layout_alignParentRight="true"
+                        android:text="$2500"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_alignParentBottom="true"
+                        android:text="'@maruf'"
+                        android:layout_below="@id/transaction_amount"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+
+</com.daimajia.swipe.SwipeLayout>

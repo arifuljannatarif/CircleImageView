@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 3/7/20 12:03 PM
+  -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="10dp"/>
+            <stroke android:width="2dp"
+                android:color="@color/red"
+                android:dashGap="2dp"/>
+            <size android:width="15dp"/>
+        </shape>
+    </item>
+    <item android:state_pressed="false">
+
+        <shape android:shape="rectangle">
+            <corners android:radius="5dp"/>
+            <solid android:color="?colorSecondary"/>
+        </shape>
+    </item>
+
+
+</selector>

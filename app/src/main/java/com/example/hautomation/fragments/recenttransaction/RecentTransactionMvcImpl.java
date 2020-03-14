@@ -4,6 +4,7 @@
 
 package com.example.hautomation.fragments.recenttransaction;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,13 @@ import android.widget.ProgressBar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.hautomation.R;
+import com.example.hautomation._enums.SortyTypes;
 import com.example.hautomation.common.BaseOvservableViewMvc;
 import com.example.hautomation.adapters.transaction.TransactionRecyclerADapter;
+import com.example.hautomation.fragments.bottomsheet.addexpense.AddnewExpense;
+import com.example.hautomation.models.TransactionModel;
+
+import java.util.ArrayList;
 
 public class RecentTransactionMvcImpl extends BaseOvservableViewMvc<RecentTransactionMvc.Listener>
         implements RecentTransactionMvc{
@@ -24,10 +30,10 @@ public class RecentTransactionMvcImpl extends BaseOvservableViewMvc<RecentTransa
     public RecentTransactionMvcImpl(LayoutInflater inflater, ViewGroup parent) {
         setmRootView(inflater.inflate(R.layout.recent_transaction,parent,false));
         initViews();
-        initRecycler(inflater);
+        initRecycler();
     }
 
-    private void initRecycler(LayoutInflater inflater) {
+    private void initRecycler() {
         recyclerADapter=new TransactionRecyclerADapter(getContext(),RecentTransactionMvcImpl.this);
         recyclerView.setAdapter(recyclerADapter);
     }
@@ -51,5 +57,35 @@ public class RecentTransactionMvcImpl extends BaseOvservableViewMvc<RecentTransa
         if(progressBar!=null)
             progressBar.setVisibility(state? View.VISIBLE:View.GONE);
 
+    }
+
+    @Override
+    public void performSearch(String key) {
+        recyclerADapter.performSearch(key);
+    }
+
+    @Override
+    public void sortItems(SortyTypes sortyType, boolean ascending) {
+
+    }
+
+    @Override
+    public void updateItems(ArrayList<TransactionModel> list) {
+        recyclerADapter.addAll(list);
+    }
+
+    @Override
+    public void clearAllItem() {
+        recyclerADapter.clear();
+    }
+
+    @Override
+    public void AddItem(TransactionModel model) {
+        recyclerADapter.addItem(model);
+    }
+
+    @Override
+    public void showTopmenu(boolean state) {
+        findViewById(R.id.top_bar).setVisibility(state?View.VISIBLE:View.GONE);
     }
 }

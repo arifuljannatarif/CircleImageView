@@ -9,10 +9,50 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="profile_image_dimention">130dp</dimen>
     <dimen name="custom_edittext_padding">8dp</dimen>
-    <dimen name="dashboaritem_corner">6dp</dimen>
+    <dimen name="dashboaritem_corner">50dp</dimen>
     <dimen name="txt_small">12sp</dimen>
     <dimen name="txt_very_small">10sp</dimen>
     <dimen name="txt_medium">16sp</dimen>
     <dimen name="txt_large">20sp</dimen>
     <dimen name="recycler_card_corner">3dp</dimen>
+    <dimen name="transaction_card_title_size">18sp</dimen>
+    <dimen name="transaction_line_width">1dp</dimen>
+    <dimen name="transaction_item_marleft">20dp</dimen>
+    <dimen name="transaction_dot_dimension">6dp</dimen>
+    <dimen name="transaction_line_marleft">6dp</dimen>
+    <dimen name="transaction_item_border_height" >0.5dp</dimen>
+    <dimen name="txt_small_2">14sp</dimen>
+    <dimen name="input_hint_ts">18sp</dimen>
+    <dimen name="spinner_height">30dp</dimen>
+    <dimen name="spinner_margin_top">10dp</dimen>
+    <dimen name="spinner_margin_bottom">1dp</dimen>
+    <dimen name="spinner_margin_right">2dp</dimen>
+    <dimen name="addexpense_spinner_width">140dp</dimen>
+    <dimen name="recycler_action_btn_width">90dp</dimen>
+    <dimen name="dash_board_circledime">100dp</dimen>
+    <dimen name="user_avatar_dimen">50dp</dimen>
+
+
+
+
+
+
+
+
+
+
+
+    //material dimens
+    <dimen name="page_title">20sp</dimen>
+    <dimen name="paragraph">14sp</dimen>
+    <dimen name="list_title">14sp</dimen>  //medium title
+    <dimen name="list_item_title">16sp</dimen>
+    <dimen name="secondary_text">14sp</dimen>
+    <dimen name="button_tab">14sp</dimen> //medium weight
+    <dimen name="text_input">16sp</dimen>
+
+
+    //end
+
+
 </resources>

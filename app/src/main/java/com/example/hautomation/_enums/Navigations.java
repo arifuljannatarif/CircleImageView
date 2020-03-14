@@ -8,5 +8,7 @@ public enum  Navigations {
     PROFILE,
     ADD_NEW_USER,
     DASHBOARD,
-    TRANSACTIONS
+    TRANSACTIONS,
+    USER_LIST,
+    HOME
 }
