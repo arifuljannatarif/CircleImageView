@@ -50,6 +50,7 @@
     <dimen name="secondary_text">14sp</dimen>
     <dimen name="button_tab">14sp</dimen> //medium weight
     <dimen name="text_input">16sp</dimen>
+    <dimen name="addexpense_item_height">60dp</dimen>
 
 
     //end

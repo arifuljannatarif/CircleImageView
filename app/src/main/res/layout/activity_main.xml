@@ -53,6 +53,23 @@
                 </FrameLayout>
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_gravity="bottom|end"
+                android:layout_margin="25dp"
+                android:id="@+id/fab"
+                android:visibility="gone"
+                android:backgroundTint="?colorAccent"
+                android:src="@android:drawable/ic_input_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <FrameLayout
+            android:id="@+id/fragment_container_fullscreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/nav_view"

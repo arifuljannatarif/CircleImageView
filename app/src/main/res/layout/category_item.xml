@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 3/16/20 12:58 AM
+  -->
+
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/item_txt"
+    android:gravity="center_vertical|center_horizontal"
+    android:padding="15dp"
+    android:background="@drawable/selectable_icon_bg"
+    android:layout_height="wrap_content"/>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "787499083123",
+    "firebase_url": "https://hautomation-a3b94.firebaseio.com",
+    "project_id": "hautomation-a3b94",
+    "storage_bucket": "hautomation-a3b94.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787499083123:android:14906a691d35ae75ee1106",
+        "android_client_info": {
+          "package_name": "com.example.hautomation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787499083123-aq9etr1409cbs6lh1agh80cf841kea1h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hautomation",
+            "certificate_hash": "c9472b50931d87388bfa8a68cdb8cc62c78bff61"
+          }
+        },
+        {
+          "client_id": "787499083123-p891br9i91au8dlhv5gmdn1l1hutla90.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMx0nXj1_lBl6vhf0HZA2gqAYq72tgvmc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787499083123-p891br9i91au8dlhv5gmdn1l1hutla90.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

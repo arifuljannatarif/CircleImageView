@@ -5,6 +5,5 @@
 
 <shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
 <corners android:radius="8dp"/>
-    <stroke android:width="0.00001dp"/>
-    <solid android:color="@color/white"/>
+    <stroke android:width="0.00001dp"/> 
 </shape>

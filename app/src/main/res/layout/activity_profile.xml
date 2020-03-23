@@ -49,7 +49,6 @@
     <androidx.core.widget.NestedScrollView
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         android:background="@drawable/rounded_top"
-        android:backgroundTint="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RelativeLayout
@@ -57,7 +56,6 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:background="#F3F1F1"
                 android:paddingVertical="10dp"
                 android:paddingHorizontal="12dp"
                 android:orientation="vertical"
@@ -72,16 +70,19 @@
                         app:barrierDirection="right"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"/>
+
                     <TextView
+                        android:id="@+id/user_name_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:gravity="center_vertical"
+                        android:padding="6dp"
+                        android:text="User Name"
+                        app:layout_constraintBottom_toBottomOf="@id/profile_user_name"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@id/profile_user_name"
-                        app:layout_constraintBottom_toBottomOf="@id/profile_user_name"
-                        android:id="@+id/user_name_hint"
-                        android:padding="6dp"
-                        android:gravity="center_vertical"
-                        android:text="User Name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"/>
+                        app:layout_constraintVertical_bias="0.0" />
+
                     <EditText
                         app:layout_constraintStart_toStartOf="@id/guideline"
                         app:layout_constraintEnd_toEndOf="parent"

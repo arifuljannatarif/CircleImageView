@@ -64,9 +64,10 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.chip.ChipGroup
+        android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
         app:singleSelection="true"
-        android:layout_width="match_parent">
+        android:layout_width="wrap_content">
         <com.google.android.material.chip.Chip
             android:singleLine="true"
             android:textSize="18dp"
@@ -109,6 +110,7 @@
         android:layout_height="wrap_content"/>
     <ProgressBar
         android:padding="8dp"
+        android:layout_gravity="center_horizontal"
         android:visibility="gone"
         android:id="@+id/progressBar"
         app:layout_constraintTop_toBottomOf="@id/barrier1"

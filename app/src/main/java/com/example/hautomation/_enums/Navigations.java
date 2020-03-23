@@ -10,5 +10,12 @@ public enum  Navigations {
     DASHBOARD,
     TRANSACTIONS,
     USER_LIST,
-    HOME
+    ADD_TRANSACTION,
+    USER_LIST_TARGET,
+    HOME,
+    ACCOUNTS,
+    CATAGORIES,
+    LOGOUT,
+    MONTHLY_SUMMARY;
+
 }

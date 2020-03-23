@@ -27,5 +27,8 @@ public abstract class BaseOvservableViewMvc<ListenserType> extends BaseViewMvc
     protected Set<ListenserType> getListensers(){
         return Collections.unmodifiableSet(mListensers);
     }
+    protected void showToast(String msg){
+        Toast.makeText(getContext(),msg,Toast.LENGTH_SHORT).show();
+    }
 
 }

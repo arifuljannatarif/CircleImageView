@@ -14,7 +14,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 
 import com.example.hautomation.R;
-import com.example.hautomation.common.BaseActivity;
+import com.example.hautomation.activity.BaseActivity;
 import com.example.hautomation.fragments.recenttransaction.RecentTransactionFragent;
 
 public class TransactionActivity extends BaseActivity implements TransactionViewMVC.Listener{

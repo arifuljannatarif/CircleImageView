@@ -22,7 +22,7 @@ public class TransactionItemViewImpl extends BaseOvservableViewMvc<TransactionIt
     }
     @Override
     public void initViews() {
-        Toast.makeText(getContext(),"init view",Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

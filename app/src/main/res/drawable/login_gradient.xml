@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 3/23/20 12:38 AM
+  -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="oval">
+            <size android:width="120dp"
+                android:height="120dp"/>
+            <gradient android:startColor="#FD897A"
+                android:endColor="#E69759"/>
+        </shape>
+
+    </item>
+</selector>

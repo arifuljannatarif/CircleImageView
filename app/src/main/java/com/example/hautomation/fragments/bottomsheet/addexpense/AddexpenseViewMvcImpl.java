@@ -4,8 +4,6 @@
 
 package com.example.hautomation.fragments.bottomsheet.addexpense;
 
-import android.content.res.TypedArray;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,13 +22,13 @@ public class AddexpenseViewMvcImpl extends BaseOvservableViewMvc<AddExpenseViewM
     View mainView;
     public AddexpenseViewMvcImpl(LayoutInflater inflater, ViewGroup parent) {
         setmRootView(inflater.inflate(R.layout.add_expense_bottomsheet,parent,false));
-        initViews();
+        //initViews();
     }
 
     @Override
     public void initViews() {
         mainView=findViewById(R.id.main_view);
-        typeSpinner=findViewById(R.id.type);
+        typeSpinner=findViewById(R.id.add_sel_catagory);
         typeSpinner.setAdapter(new ArrayAdapter<TransactionType>(getContext(),android.R.layout.simple_spinner_dropdown_item, TransactionType.values()));
         modeSpinner=findViewById(R.id.mode);
         modeSpinner.setAdapter(new ArrayAdapter<TransactionMode>(getContext(),android.R.layout.simple_spinner_dropdown_item, TransactionMode.values()));
