@@ -10,5 +10,5 @@ allprojects {
   
   
   dependencies {
-	        implementation 'com.github.arifuljannatarif:CircleImageView:Tag'
+	       implementation 'com.github.arifuljannatarif:CircleImageView:circleImageViewlibrary-SNAPSHOT'
 	}
