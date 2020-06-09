@@ -6,7 +6,7 @@
     android:background="@drawable/gradient"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.profile.Profile">
+    tools:context="com.example.mvc.activity.profile.Profile">
     <com.google.android.material.appbar.AppBarLayout
         android:background="@android:color/transparent"
         android:layout_width="match_parent"

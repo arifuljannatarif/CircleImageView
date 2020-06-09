@@ -1,2 +1,2 @@
 include ':app', ':circleimageview'
-rootProject.name='HAutomation'
+rootProject.name='Mvc Architecture'

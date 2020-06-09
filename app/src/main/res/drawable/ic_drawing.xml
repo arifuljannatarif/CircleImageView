@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2020. This code is created and written by Ariful Jannat Arif on 3/24/20 8:10 PM
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="210dp"
+    android:height="297dp"
+    android:viewportWidth="210"
+    android:viewportHeight="297">
+  <path
+      android:fillColor="#E41C1C"
+      android:pathData="M20.411,13.518L188.232,13.518 A13.607,13.607 0,0 1,201.839 27.125L201.839,163.952A13.607,13.607 0,0 1,188.232 177.56L20.411,177.56A13.607,13.607 0,0 1,6.804 163.952L6.804,27.125A13.607,13.607 0,0 1,20.411 13.518z"
+      android:strokeWidth="0.32361445"/>
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="m200.643,86.329 l-15.511,192.637 -178.347,-108.361z"
+      android:strokeWidth="0.26458332"/>
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="M184.906,133.185L197.757,133.185A3.78,3.78 0,0 1,201.537 136.965L201.537,274.548A3.78,3.78 0,0 1,197.757 278.328L184.906,278.328A3.78,3.78 0,0 1,181.126 274.548L181.126,136.965A3.78,3.78 0,0 1,184.906 133.185z"
+      android:strokeWidth="0.16432185"/>
+</vector>

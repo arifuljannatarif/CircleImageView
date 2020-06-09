@@ -5,7 +5,6 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/off_white</item>
         <item name="colorControlHighlight">@color/colorAccent</item>
@@ -60,5 +59,11 @@
         <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
     </style>
 
+    <declare-styleable name="CircleImageView">
+        <attr name="strokeColor" format="color"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="highlightEnable" format="boolean"/>
+        <attr name="highlightColor" format="color"/>
+    </declare-styleable>
 
 </resources>

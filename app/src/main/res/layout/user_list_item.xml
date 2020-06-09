@@ -16,7 +16,7 @@
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <com.example.circleimageview.CircleImageView
+        <com.example.mvc.CircleImageView
             android:layout_margin="8dp"
             android:id="@+id/user_image"
             android:src="@drawable/peaple"
