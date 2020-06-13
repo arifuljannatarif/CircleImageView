@@ -18,6 +18,7 @@ import com.example.mvc.fragments.recenttransaction.RecentTransactionMvc;
 import com.example.mvc.fragments.recenttransaction.RecentTransactionMvcImpl;
 import com.example.mvc.fragments.userlist.UserlistMvc;
 import com.example.mvc.fragments.userlist.UserlistMvcImpl;
+import com.example.mvc.screen.userlistbottomsheet.UserListBottomSheetMvcImpl;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -44,5 +45,9 @@ public class ViewMvcFactory {
 
     public HomePageMvcImpl getHomePageMvc(ViewGroup parent) {
         return new HomePageMvcImpl(mLayoutInflater,parent);
+    }
+
+    public UserListBottomSheetMvcImpl getUserListSheetMvc(LayoutInflater inflater, ViewGroup container) {
+        return new UserListBottomSheetMvcImpl(inflater,container);
     }
 }

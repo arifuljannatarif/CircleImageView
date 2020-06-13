@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:padding="8dp"
+            android:background="@android:color/transparent"
+            android:id="@+id/closeBtn"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_cancel_black_24dp"
+            android:scaleType="fitXY"
+            android:layout_width="@dimen/default_icon_size"
+            android:layout_height="@dimen/default_icon_size"/>
+        <TextView
+            android:padding="8dp"
+            android:textSize="@dimen/txt_medium"
+            android:id="@+id/listTitle"
+            android:text="Select User"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.SearchView
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/listTitle"
+            android:id="@+id/searchView"
+            android:focusedByDefault="false"
+            app:iconifiedByDefault="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <include layout="@layout/progressindicator_layout"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_marginTop="5dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_below="@id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

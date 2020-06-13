@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import com.example.mvc.activity.homepage.HomePageActivityController;
 import com.example.mvc.common.ControllerFactory;
 import com.example.mvc.common.ViewMvcFactory;
+import com.example.mvc.usecase.UseCaseFactory;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ControllerCompossionRoot {
@@ -37,6 +38,6 @@ public class ControllerCompossionRoot {
     }
 
     public ControllerFactory geControllerFactory() {
-        return new ControllerFactory();
+        return new ControllerFactory(new UseCaseFactory());
     }
 }

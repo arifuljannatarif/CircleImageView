@@ -11,7 +11,7 @@ public class HomePageActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new Utils().changeTheme(this,new SharedPreferencesManager(this).retrieveInt("theme",1));
+       // new Utils().changeTheme(this,new SharedPreferencesManager(this).retrieveInt("theme",1));
         HomePageMvcImpl viewMvc = getCompositionRoot().getViewMvcFactory().getHomePageMvc(null);
         mController=getCompositionRoot().geHomePageActivityController();
         mController.bindView(viewMvc);

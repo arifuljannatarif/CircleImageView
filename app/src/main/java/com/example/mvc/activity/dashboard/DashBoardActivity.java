@@ -19,7 +19,7 @@ public class DashBoardActivity extends BaseActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new Utils().changeTheme(this,new SharedPreferencesManager(this).retrieveInt("theme",1));
+       // new Utils().changeTheme(this,new SharedPreferencesManager(this).retrieveInt("theme",1));
         DashBoardViewMvc viewMvc = getCompositionRoot().getViewMvcFactory().getDashboardViewMvc(null);
         dashBoardController =getCompositionRoot().geControllerFactory().getDashBoardActivityController(this);
         dashBoardController.bindView(viewMvc);

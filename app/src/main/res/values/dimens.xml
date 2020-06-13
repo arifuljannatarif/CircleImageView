@@ -51,6 +51,8 @@
     <dimen name="button_tab">14sp</dimen> //medium weight
     <dimen name="text_input">16sp</dimen>
     <dimen name="addexpense_item_height">60dp</dimen>
+    <dimen name="progressIndicatorDefaultSize">90dp</dimen>
+    <dimen name="default_icon_size">35dp</dimen>
 
 
     //end

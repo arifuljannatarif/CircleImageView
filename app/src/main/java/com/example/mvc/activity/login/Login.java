@@ -17,6 +17,7 @@ import com.example.mvc.R;
 import com.example.mvc.activity.BaseActivity;
 import com.example.mvc.activity.dashboard.DashBoardActivity;
 import com.example.mvc.dialogue.confirmdialogue.ConfirmationDialogue;
+import com.example.mvc.screen.userlistbottomsheet.UserListBottomSheet;
 import com.example.mvc.utils.SharedPreferencesManager;
 import com.example.mvc.utils.Utils;
 
@@ -24,14 +25,15 @@ public class Login extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new Utils().changeTheme(this,new SharedPreferencesManager(this).retrieveInt("theme",1));
+        //new Utils().changeTheme(this,new SharedPreferencesManager(this).retrieveInt("theme",1));
         setContentView(R.layout.activity_login);
     }
     public void dashboard(View view) {
+      //  new UserListBottomSheet().show(getSupportFragmentManager(),null);
     //    new ConfirmationDialogue(Login.this).show();
         findViewById(R.id.progressbar).setVisibility(View.VISIBLE);
         startActivity(new Intent(Login.this, DashBoardActivity.class));
-        findViewById(R.id.progressbar).setVisibility(View.GONE);
+        finish();
        /* findViewById(R.id.progressbar).setVisibility(View.VISIBLE);
         new Handler().postDelayed(new Runnable() {
             @Override
