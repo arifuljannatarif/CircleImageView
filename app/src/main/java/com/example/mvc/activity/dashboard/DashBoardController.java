@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mvc.R;
 import com.example.mvc._enums.Navigations;
+import com.example.mvc.activity.BaseActivity;
 import com.example.mvc.activity.profile.Profile;
 import com.example.mvc.activity.transactions.TransactionActivity;
 import com.example.mvc.fragments.RefreshFragment;
@@ -83,7 +84,7 @@ public class DashBoardController implements DashBoardViewMvc.Listener {
             case CATAGORIES:
                 break;
             case ADD_TRANSACTION:
-                new AddTransactionFragment(viewMvc.getRootView().getContext(), LayoutInflater.from(activity),null).show();
+                new AddTransactionFragment(activity, null).show();
                 break;
             case ADD_NEW_USER:
                 break;

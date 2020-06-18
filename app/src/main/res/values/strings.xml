@@ -15,4 +15,5 @@
     <string name="sample_date">Tuesday, 25-April</string>
     <string name="sample_name">Abdul batin mulla</string>
     <string name="sample_info">ScholarseHome, class 9</string>
+    <string name="note_about_the_transaction">Note about the transaction</string>
 </resources>

@@ -4,41 +4,46 @@
 
 package com.example.mvc.fragments.addtransactions;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.mvc.R;
 
-public class AddTransactionFragment extends Dialog implements AddTransactionMvc.Listener{
-    AddTransactionMvcimpl mvcView;
-
-    public AddTransactionFragment(@NonNull Context context,LayoutInflater inflater,ViewGroup container) {
-        super(context, R.style.full_screen_dialog);
-        mvcView=new AddTransactionMvcimpl(inflater,container);
+public class AddTransactionFragment extends Dialog{
+    AddTransactionFragmentController controller;
+    public AddTransactionFragment(Context activity, ViewGroup container) {
+        super(activity, R.style.full_screen_dialog);
+        controller=new AddTransactionFragmentController();
+        controller.bindView(new AddTransactionMvcimpl(LayoutInflater.from(activity),container));
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(mvcView.getRootView());
-        mvcView.registerListener(this);
+        setContentView(controller.geViewMvc().getRootView());
         getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.MATCH_PARENT);
+        controller.setDialog(this);
     }
 
     @Override
-    public void homeBtnPressed() {
-        dismiss();
+    protected void onStart() {
+        super.onStart();
+        controller.onStart();
     }
 
     @Override
-    public void saveButtonClicked() {
-        dismiss();
+    protected void onStop() {
+        super.onStop();
+        controller.onStart();
     }
 }

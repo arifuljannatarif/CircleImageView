@@ -37,7 +37,7 @@ public class ControllerCompossionRoot {
         return new HomePageActivityController();
     }
 
-    public ControllerFactory geControllerFactory() {
+    public ControllerFactory getControllerFactory() {
         return new ControllerFactory(new UseCaseFactory());
     }
 }

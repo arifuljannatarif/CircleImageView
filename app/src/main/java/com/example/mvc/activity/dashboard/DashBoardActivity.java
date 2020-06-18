@@ -11,17 +11,15 @@ import android.view.MenuItem;
 
 import com.example.mvc.R;
 import com.example.mvc.activity.BaseActivity;
-import com.example.mvc.utils.SharedPreferencesManager;
-import com.example.mvc.utils.Utils;
 
-public class DashBoardActivity extends BaseActivity{ 
+public class DashBoardActivity extends BaseActivity{
     DashBoardController dashBoardController;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // new Utils().changeTheme(this,new SharedPreferencesManager(this).retrieveInt("theme",1));
+        // new Utils().changeTheme(this,new SharedPreferencesManager(this).retrieveInt("theme",1));
         DashBoardViewMvc viewMvc = getCompositionRoot().getViewMvcFactory().getDashboardViewMvc(null);
-        dashBoardController =getCompositionRoot().geControllerFactory().getDashBoardActivityController(this);
+        dashBoardController =getCompositionRoot().getControllerFactory().getDashBoardActivityController(this);
         dashBoardController.bindView(viewMvc);
         setContentView(viewMvc.getRootView());
         super.showFabmenu=true;

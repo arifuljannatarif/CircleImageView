@@ -17,20 +17,52 @@ import com.example.mvc.common.ViewMvcFactory;
 import com.example.mvc.fragments.RefreshFragment;
 
 public class AccountsFragment extends RefreshFragment implements AccountFragmentMvc.Listener {
-   AccountFragmentMvcImpl mvcView;
-   ViewMvcFactory mvcFactory;
+
+    AccountsController controller;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-      //  mvcView=mvcFactory.getAccountFragmentMvc(container);
-        mvcView = new AccountFragmentMvcImpl(inflater,container);
+        //  mvcView=mvcFactory.getAccountFragmentMvc(container);
+        AccountFragmentMvcImpl mvcView = new AccountFragmentMvcImpl(inflater, container);
         mvcView.registerListener(this);
+        controller=getControllerFactory().getAccountFragmentController();
+        controller.bindView(mvcView);
         return mvcView.getRootView();
     }
 
     @Override
     public void showProgressbar(boolean state) {
 
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        controller.onStop();
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        controller.onStop();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        controller.onDestroy();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        controller.onPause();
     }
 
     @Override

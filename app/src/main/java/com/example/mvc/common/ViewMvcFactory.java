@@ -10,10 +10,11 @@ import android.view.ViewGroup;
 import com.example.mvc.activity.dashboard.DashBoardViewMvc;
 import com.example.mvc.activity.dashboard.DashBoardViewMvcImpl;
 import com.example.mvc.activity.homepage.HomePageMvcImpl;
+import com.example.mvc.activity.navigationManager.NavigationManagerViewImpl;
 import com.example.mvc.activity.profile.ProfileMvc;
 import com.example.mvc.activity.profile.ProfileMvcImpl;
-import com.example.mvc.fragments.accounts.AccountFragmentMvc;
 import com.example.mvc.fragments.accounts.AccountFragmentMvcImpl;
+import com.example.mvc.fragments.addtransactions.AddTransactionMvcimpl;
 import com.example.mvc.fragments.recenttransaction.RecentTransactionMvc;
 import com.example.mvc.fragments.recenttransaction.RecentTransactionMvcImpl;
 import com.example.mvc.fragments.userlist.UserlistMvc;
@@ -49,5 +50,13 @@ public class ViewMvcFactory {
 
     public UserListBottomSheetMvcImpl getUserListSheetMvc(LayoutInflater inflater, ViewGroup container) {
         return new UserListBottomSheetMvcImpl(inflater,container);
+    }
+
+    public NavigationManagerViewImpl geNavigationActivityViewMvc(ViewGroup parent) {
+        return new NavigationManagerViewImpl(mLayoutInflater,parent);
+    }
+
+    public AddTransactionMvcimpl getAddTransactionMvc(ViewGroup container) {
+        return new AddTransactionMvcimpl(mLayoutInflater,container);
     }
 }

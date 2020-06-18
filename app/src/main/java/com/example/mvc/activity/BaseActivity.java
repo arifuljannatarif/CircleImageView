@@ -24,8 +24,8 @@ public class BaseActivity extends AppCompatActivity {
     protected ControllerCompossionRoot getCompositionRoot(){
         if(mControllerCompossionRoot==null)
             mControllerCompossionRoot=new ControllerCompossionRoot(
-                    ((CustomApplication)getApplication()).getmCompositionRoot()
-            ,this);
+                    ((CustomApplication)getApplication()).getCompositionRoot()
+                    ,this);
         return mControllerCompossionRoot;
     }
     @Override
@@ -43,7 +43,7 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
     protected void onfabClicked(){
-        new AddTransactionFragment(BaseActivity.this, LayoutInflater.from(BaseActivity.this),null)
-                .show();
+        new AddTransactionFragment(BaseActivity.this, null).show();
+
     }
 }

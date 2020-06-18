@@ -28,7 +28,7 @@ public class AddexpenseViewMvcImpl extends BaseOvservableViewMvc<AddExpenseViewM
     @Override
     public void initViews() {
         mainView=findViewById(R.id.main_view);
-        typeSpinner=findViewById(R.id.add_sel_catagory);
+        typeSpinner=findViewById(R.id.dateHint);
         typeSpinner.setAdapter(new ArrayAdapter<TransactionType>(getContext(),android.R.layout.simple_spinner_dropdown_item, TransactionType.values()));
         modeSpinner=findViewById(R.id.mode);
         modeSpinner.setAdapter(new ArrayAdapter<TransactionMode>(getContext(),android.R.layout.simple_spinner_dropdown_item, TransactionMode.values()));

@@ -83,8 +83,8 @@
             android:layout_height="@dimen/transaction_item_border_height"/>
         <TextView
             android:gravity="center_vertical"
-            android:layout_alignBottom="@id/add_sel_catagory"
-            android:layout_alignTop="@id/add_sel_catagory"
+            android:layout_alignBottom="@id/dateHint"
+            android:layout_alignTop="@id/dateHint"
             android:id="@+id/type_hint"
             android:textSize="@dimen/input_hint_ts"
             android:text="Type"
@@ -93,12 +93,12 @@
         <Spinner
             style="@style/addexpensespinnerstyle"
             android:layout_below="@id/amount"
-            android:id="@+id/add_sel_catagory"
+            android:id="@+id/dateHint"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/spinner_height"/>
         <View
-            android:layout_below="@id/add_sel_catagory"
+            android:layout_below="@id/dateHint"
             android:background="@color/add_expense_border_color"
             android:layout_width="match_parent"
             android:layout_height="@dimen/transaction_item_border_height"/>
@@ -113,7 +113,7 @@
             android:layout_height="wrap_content"/>
         <Spinner
             style="@style/addexpensespinnerstyle"
-            android:layout_below="@id/add_sel_catagory"
+            android:layout_below="@id/dateHint"
             android:id="@+id/catagory"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"

@@ -11,5 +11,12 @@ public interface AddTransactionMvc extends ObserVableViewMvc<AddTransactionMvc.L
     public interface Listener {
         void homeBtnPressed();
         void saveButtonClicked();
+        void onEvent(AddTransactionMvcimpl.EVENT event);
     }
+    void changeDate(String date);
+    void setAmount(String val);
+    String  getAmount();
+    void setAmountError(String error);
+    void setUserError(String error);
+    void loadingStatus(boolean state);
 }

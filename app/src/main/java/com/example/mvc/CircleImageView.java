@@ -53,7 +53,6 @@ public class CircleImageView extends androidx.appcompat.widget.AppCompatImageVie
 
     public CircleImageView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-
         int strokeColor = Color.TRANSPARENT;
         float strokeWidth = 0;
         boolean highlightEnable = true;

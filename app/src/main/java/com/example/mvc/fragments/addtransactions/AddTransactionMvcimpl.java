@@ -4,12 +4,17 @@
 
 package com.example.mvc.fragments.addtransactions;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,67 +27,89 @@ import com.example.mvc.common.BaseOvservableViewMvc;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddTransactionMvcimpl extends BaseOvservableViewMvc<AddTransactionMvc.Listener> implements AddTransactionMvc {
+import butterknife.BindView;
+import butterknife.BindViews;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class AddTransactionMvcimpl extends BaseOvservableViewMvc<AddTransactionMvc.Listener> implements AddTransactionMvc,View.OnClickListener {
+    enum EVENT{
+        CHANGE_DATE,
+        SAVE_TRANSACTION,
+        CANCEL_DIALOG,
+        PICK_USER,
+        UNKNOWN
+    }
+    public static final String TAG="ADTRANSACTION";
+
+    @BindView(R.id.dateHint)
+    TextView dateHint;
+    @BindView(R.id.userTv)
+    EditText userField;
+    @BindView(R.id.notes)
+    EditText notesField; 
+    @BindView(R.id.amount)
+    EditText amount;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
     public AddTransactionMvcimpl(LayoutInflater inflater, ViewGroup parent) {
         setmRootView(inflater.inflate(R.layout.add_transaction_fragment,parent,false));
+        ButterKnife.bind(this,getRootView());
         initViews();
     }
     @Override
-    public void initViews() {
-        findViewById(R.id.up_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                for(Listener listener:getListensers())
-                    listener.homeBtnPressed();
-            }
-        });
-        findViewById(R.id.save_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                for(Listener listener:getListensers())
-                    listener.saveButtonClicked();
-            }
-        });
-        findViewById(R.id.add_sel_catagory).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showAlertDialog();
-            }
-        });
-    }
-    private void showAlertDialog() {
-        // Prepare grid view
-        GridView gridView = new GridView(getContext());
-
-        List<String> mList = new ArrayList<>();
-        for (int i = 1; i < 10; i++) {
-            mList.add(i+"");
+    public void initViews() {}
+    @OnClick({R.id.saveBtn,R.id.up_button,R.id.datePicker,R.id.pickUserBtn})
+    public void onClick(View v) {
+        AddTransactionMvcimpl.EVENT event;
+        switch (v.getId()){
+            case R.id.saveBtn:
+                event=EVENT.SAVE_TRANSACTION;
+                break;
+            case R.id.up_button:
+                event=EVENT.CANCEL_DIALOG;
+                break;
+            case R.id.datePicker:
+                event=EVENT.CHANGE_DATE;
+                break;
+            case R.id.pickUserBtn:
+                event=EVENT.PICK_USER;
+                break;
+            default:
+                event=EVENT.UNKNOWN;
         }
-
-        gridView.setAdapter(new ArrayAdapter(getContext(), R.layout.category_item, mList){
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                if(convertView==null)
-                    convertView=LayoutInflater.from(getContext()).inflate(R.layout.category_item,parent,false);
-                ((TextView)convertView).setCompoundDrawablesRelativeWithIntrinsicBounds(0,R.drawable.ic_arrow_drop_down_black_24dp,0,0);
-                ((TextView) convertView).setText((CharSequence) getItem(position));
-                return convertView;
-            }
-        });
-
-         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        gridView.setNumColumns(3);
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
-
-        // Set grid view to alertDialog
-        builder.setView(gridView);
-        builder.setTitle("Select Catagory");
-        builder.show();
+        for (Listener listener:getListensers()){
+            listener.onEvent(event);
+        }
     }
+    @Override
+    public void changeDate(String date) {
+        dateHint.setText(date);
+    }
+
+    @Override
+    public void setAmount(String val) {
+        amount.setText(val);
+    }
+
+    @Override
+    public String getAmount() {
+        return amount.getText().toString();
+    }
+
+    @Override
+    public void setAmountError(String error) {
+        amount.setError(error);
+    }
+
+    @Override
+    public void setUserError(String error) {
+        userField.setError(error);
+    }
+
+    @Override
+    public void loadingStatus(boolean state) {
+        progressBar.setVisibility(state?View.VISIBLE:View.GONE);
+    }
+
 }

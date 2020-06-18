@@ -4,8 +4,8 @@
 
 package com.example.mvc.fragments;
 
-import com.example.mvc.interfaces.RefreshMethods;
+import com.example.mvc.interfaces.BaseFragment;
 
-public abstract class RefreshFragment extends RefreshMethods {
+public abstract class RefreshFragment extends BaseFragment {
 
 }
