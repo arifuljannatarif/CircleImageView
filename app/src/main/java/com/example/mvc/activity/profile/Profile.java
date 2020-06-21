@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.mvc.activity.BaseActivity;
+import com.example.mvc.screens.common.controllers.BaseActivity;
 
 
 public class Profile extends BaseActivity implements ProfileMvc.Listener {

@@ -31,7 +31,7 @@
             android:layout_height="match_parent">
             <ProgressBar
                 android:visibility="gone"
-                android:id="@+id/progressbar"
+                android:id="@+id/progressBar"
                 android:padding="10dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"

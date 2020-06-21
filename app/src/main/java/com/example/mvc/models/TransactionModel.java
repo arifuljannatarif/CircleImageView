@@ -8,29 +8,100 @@ import com.example.mvc._enums.TransactionMode;
 import com.example.mvc._enums.TransactionType;
 
 public class TransactionModel {
-    TransactionType transactionType;
-    TransactionMode transactionMode;
-    public TransactionModel() { }
+    private long Date;
+    private long lastUpdated;
+    private String entryBy;
+    private String userId;
+    private boolean payment;
+    private  String notes;
+    private String bookId;
+    private int amount;
+    private String title;
+    private TransactionType type;
 
-    public TransactionType getTransactionType(boolean isenum) {
-        return transactionType;
-    }
-    public String getTransactionType() {
-        return transactionType==null?null:transactionType.toString();
-    }
-    public void setTransactionType(TransactionType transactionType) {
-        this.transactionType = transactionType;
-    }
-    public void setTransactionType(String transactionType) {
-        if(transactionType!=null)
-        this.transactionType = TransactionType.valueOf(transactionType);
-    }
-
-    public TransactionMode getTransactionMode() {
-        return transactionMode;
+    public TransactionModel(String bookId, int amount, String notes) {
+        this.bookId = bookId;
+        this.amount = amount;
+        this.notes=notes;
     }
 
-    public void setTransactionMode(TransactionMode transactionMode) {
-        this.transactionMode = transactionMode;
+    public long getDate() {
+        return Date;
+    }
+
+    public void setDate(long date) {
+        Date = date;
+    }
+
+    public long getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(long lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
+
+    public String getEntryBy() {
+        return entryBy;
+    }
+
+    public void setEntryBy(String entryBy) {
+        this.entryBy = entryBy;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public boolean isPayment() {
+        return payment;
+    }
+
+    public void setPayment(boolean payment) {
+        this.payment = payment;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public String getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(String bookId) {
+        this.bookId = bookId;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public TransactionType getType() {
+        return type;
+    }
+
+    public void setType(TransactionType type) {
+        this.type = type;
     }
 }

@@ -15,7 +15,7 @@ import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.appcompat.widget.Toolbar;
 import com.example.mvc.R;
 import com.example.mvc._enums.UserTypes;
-import com.example.mvc.common.BaseOvservableViewMvc;
+import com.example.mvc.screens.common.views.BaseOvservableViewMvc;
 
 
 public class ProfileMvcImpl extends BaseOvservableViewMvc<ProfileMvc.Listener> implements ProfileMvc {
@@ -28,7 +28,7 @@ public class ProfileMvcImpl extends BaseOvservableViewMvc<ProfileMvc.Listener> i
     AppCompatSpinner userType;
 
     public ProfileMvcImpl(LayoutInflater inflater, ViewGroup parent){
-        setmRootView(inflater.inflate(R.layout.activity_profile,parent,false));
+        setRootView(inflater.inflate(R.layout.activity_profile,parent,false));
         try{
             registerListener((Listener) getContext());
         }catch (Exception e){

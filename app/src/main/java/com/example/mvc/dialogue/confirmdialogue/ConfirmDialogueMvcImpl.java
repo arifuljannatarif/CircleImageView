@@ -8,11 +8,11 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.example.mvc.R;
-import com.example.mvc.common.BaseOvservableViewMvc;
+import com.example.mvc.screens.common.views.BaseOvservableViewMvc;
 
 public class ConfirmDialogueMvcImpl extends BaseOvservableViewMvc<ConfirmDialogueMvc.Listener> {
     public ConfirmDialogueMvcImpl(LayoutInflater inflater,ViewGroup parent){
-        setmRootView(inflater.inflate(R.layout.confirmation_dialog_layout,parent,false));
+        setRootView(inflater.inflate(R.layout.confirmation_dialog_layout,parent,false));
     }
     @Override
     public void initViews() {

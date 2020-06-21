@@ -5,7 +5,7 @@
     android:layout_gravity="center_horizontal"
     android:layout_width="@dimen/progressIndicatorDefaultSize"
     android:layout_height="@dimen/progressIndicatorDefaultSize">
-    <com.example.mvc.CircleImageView
+    <com.example.mvc.customviewclasses.CircleImageView
         android:id="@+id/progressIcon"
         android:src="@mipmap/ic_launcher"
         android:layout_width="match_parent"

@@ -4,7 +4,7 @@
 
 package com.example.mvc.adapters.transaction;
 
-import com.example.mvc.common.ObserVableViewMvc;
+import com.example.mvc.screens.common.views.ObserVableViewMvc;
 import com.example.mvc.models.TransactionModel;
 
 public interface TransactionItemViewMvc extends ObserVableViewMvc<TransactionItemViewMvc.Listener> {

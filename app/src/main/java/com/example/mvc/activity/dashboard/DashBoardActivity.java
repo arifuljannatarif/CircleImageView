@@ -4,13 +4,14 @@
 
 package com.example.mvc.activity.dashboard;
 
-import androidx.annotation.NonNull;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+
 import com.example.mvc.R;
-import com.example.mvc.activity.BaseActivity;
+import com.example.mvc.screens.common.controllers.BaseActivity;
 
 public class DashBoardActivity extends BaseActivity{
     DashBoardController dashBoardController;
@@ -18,8 +19,8 @@ public class DashBoardActivity extends BaseActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // new Utils().changeTheme(this,new SharedPreferencesManager(this).retrieveInt("theme",1));
-        DashBoardViewMvc viewMvc = getCompositionRoot().getViewMvcFactory().getDashboardViewMvc(null);
-        dashBoardController =getCompositionRoot().getControllerFactory().getDashBoardActivityController(this);
+        DashBoardViewImpl viewMvc = getCompositionRoot().getViewMvcFactory().getDashboardViewMvc(null);
+        dashBoardController =getCompositionRoot().getControllerFactory( ).getDashBoardActivityController(this);
         dashBoardController.bindView(viewMvc);
         setContentView(viewMvc.getRootView());
         super.showFabmenu=true;
@@ -29,6 +30,11 @@ public class DashBoardActivity extends BaseActivity{
         super.onStart();
         dashBoardController.onStart();
 
+    }
+
+    @Override
+    protected void onfabClicked() {
+        dashBoardController.onFabClicked();
     }
 
     @Override

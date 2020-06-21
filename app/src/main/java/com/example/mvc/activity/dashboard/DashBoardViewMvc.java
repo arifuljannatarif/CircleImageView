@@ -5,23 +5,19 @@
 package com.example.mvc.activity.dashboard;
 import android.view.MenuItem;
 
-import androidx.appcompat.widget.Toolbar;
-
+import com.example.mvc._enums.NavigationEvent;
 import com.example.mvc._enums.Navigations;
-import com.example.mvc.common.ObserVableViewMvc;
-import com.example.mvc.interfaces.FragmentHandler;
+import com.example.mvc.screens.common.views.ObserVableViewMvc;
 
 public interface DashBoardViewMvc extends ObserVableViewMvc<DashBoardViewMvc.Listener> {
 
-    interface Listener extends FragmentHandler {
-        void onswipeRefresh(boolean isrefreshing);
-        void setToolbar(Toolbar toolbar);
-        void setToolbarTitle(String title);
-        void changeActivity(Navigations target);
-
+    interface Listener  {
+        void onDrawerItemSelected(NavigationEvent target);
         boolean onOptionItemSelected(MenuItem item);
+
+        void onFabClicked();
+
     }
-    void setSwiperefreshing(boolean b);
-    void refresh();
+    void toggleDrawer();
     void showProgressbar(boolean state);
 }

@@ -7,8 +7,8 @@ package com.example.mvc.activity.transactions;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
-import com.example.mvc.common.ObserVableViewMvc;
-import com.example.mvc.fragments.recenttransaction.RecentTransactionFragent;
+import com.example.mvc.screens.common.views.ObserVableViewMvc;
+import com.example.mvc.screens.fragments.recenttransaction.RecentTransactionFragent;
 
 interface TransactionViewMVC extends ObserVableViewMvc<TransactionViewMVC.Listener> {
     interface Listener{

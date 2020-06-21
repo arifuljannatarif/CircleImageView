@@ -2,8 +2,6 @@ package com.example.mvc.activity.dashboard;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,47 +10,29 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mvc.R;
+import com.example.mvc._enums.NavigationEvent;
 import com.example.mvc._enums.Navigations;
-import com.example.mvc.activity.BaseActivity;
 import com.example.mvc.activity.profile.Profile;
 import com.example.mvc.activity.transactions.TransactionActivity;
-import com.example.mvc.fragments.RefreshFragment;
-import com.example.mvc.fragments.accounts.AccountsFragment;
-import com.example.mvc.fragments.addtransactions.AddTransactionFragment;
-import com.example.mvc.fragments.recenttransaction.RecentTransactionFragent;
-import com.example.mvc.fragments.userlist.UserlistFragent;
+import com.example.mvc.screens.fragments.accounts.AccountsFragment;
+import com.example.mvc.screens.fragments.addtransactions.AddTransactionFragment;
+import com.example.mvc.screens.fragments.recenttransaction.RecentTransactionFragent;
+import com.example.mvc.screens.fragments.userlist.UserlistFragent;
 
 public class DashBoardController implements DashBoardViewMvc.Listener {
 
-
-    private DashBoardViewMvc viewMvc;
+    private DashBoardViewImpl viewMvc;
     AppCompatActivity activity;
 
     public DashBoardController(AppCompatActivity activity){
         this.activity=activity;
     }
 
-    public void  bindView(DashBoardViewMvc viewMvc){
+    public void  bindView(DashBoardViewImpl viewMvc){
         this.viewMvc = viewMvc;
     }
 
 
-
-    @Override
-    public void onswipeRefresh(boolean isrefreshing) {
-        viewMvc.showProgressbar(true);
-        viewMvc.setSwiperefreshing(false);
-        getCurrentFragment().showProgressbar(true);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                ((RefreshFragment)(activity.getSupportFragmentManager().findFragmentById(R.id.fragment_container))).showProgressbar(false);
-                viewMvc.setSwiperefreshing(false);
-            }
-        },1000);
-    }
-
-    @Override
     public void setToolbar(Toolbar toolbar) {
         activity.setSupportActionBar(toolbar);
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -60,15 +40,7 @@ public class DashBoardController implements DashBoardViewMvc.Listener {
     }
 
     @Override
-    public void setToolbarTitle(String title) {
-        activity.getSupportActionBar().setTitle("Home");
-    }
-    @Override
-    public RefreshFragment getCurrentFragment() {
-        return  ((RefreshFragment)(activity.getSupportFragmentManager().findFragmentById(R.id.fragment_container)));
-    }
-    @Override
-    public void changeActivity(Navigations target) {
+    public void onDrawerItemSelected(NavigationEvent target) {
         Intent intent = null;
         switch(target){
             case PROFILE:
@@ -106,6 +78,8 @@ public class DashBoardController implements DashBoardViewMvc.Listener {
             activity.startActivity(intent);
     }
 
+
+
     @Override
     public boolean onOptionItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -113,6 +87,11 @@ public class DashBoardController implements DashBoardViewMvc.Listener {
                 return true;
         }
         return false;
+    }
+
+    @Override
+    public void onFabClicked() {
+        viewMvc.toggleDrawer();
     }
 
     public void onStart() {

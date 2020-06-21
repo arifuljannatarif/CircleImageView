@@ -86,7 +86,7 @@
 
     </LinearLayout>
 
-    <com.example.mvc.CircleImageView
+    <com.example.mvc.customviewclasses.CircleImageView
         app:strokeWidth="2dp"
         app:strokeColor="#fff"
         android:id="@+id/top_icon"

@@ -11,6 +11,7 @@
         android:id="@+id/main_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <!--
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swiperefresh"
             android:layout_width="match_parent"
@@ -52,24 +53,31 @@
                     android:layout_height="match_parent">
                 </FrameLayout>
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+
+        <ProgressBar
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:id="@+id/progressBar"
+            android:indeterminateTint="?colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:layout_gravity="bottom|end"
+                android:layout_gravity="bottom|start"
                 android:layout_margin="25dp"
                 android:id="@+id/fab"
-                android:visibility="gone"
                 android:backgroundTint="?colorAccent"
                 android:src="@android:drawable/ic_input_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
-        <FrameLayout
-            android:id="@+id/fragment_container_fullscreen"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/nav_view"

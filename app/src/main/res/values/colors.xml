@@ -35,5 +35,8 @@
     <color name="colorPrimaryDarkmode">#742F2F</color>#DA5F5F
     <color name="colorPrimaryDarkDarkmode">#633434</color>
     <color name="colorAccentDark">#E9665F</color>
+    <color name="filled_bg_bg">#48AF92</color>
+    <color name="light_gray">#8F98A3</color>
+    <color name="light_gray2">#F2F2F4</color>
     //dark theme end
 </resources>

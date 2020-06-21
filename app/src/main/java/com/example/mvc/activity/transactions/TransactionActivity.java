@@ -14,15 +14,15 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 
 import com.example.mvc.R;
-import com.example.mvc.activity.BaseActivity;
-import com.example.mvc.fragments.recenttransaction.RecentTransactionFragent;
+import com.example.mvc.screens.common.controllers.BaseActivity;
+import com.example.mvc.screens.fragments.recenttransaction.RecentTransactionFragent;
 
 public class TransactionActivity extends BaseActivity implements TransactionViewMVC.Listener{
     TransactionViewMVC viewMVC;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewMVC=new TransactionViewMVCImplementation(LayoutInflater.from(this),null);
+        viewMVC=new TransactionImplementation(LayoutInflater.from(this),null);
         setContentView(viewMVC.getRootView());
     }
     @Override

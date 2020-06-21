@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mvc.fragments.recenttransaction.RecentTransactionMvc;
-import com.example.mvc.fragments.recenttransaction.RecentTransactionMvcImpl;
+import com.example.mvc.screens.fragments.recenttransaction.RecentTransactionMvc;
+import com.example.mvc.screens.fragments.recenttransaction.RecentTransactionMvcImpl;
 import com.example.mvc.models.TransactionModel;
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class TransactionRecyclerADapter extends RecyclerView.Adapter<Transaction
     @NonNull
     @Override
     public MyviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        TransactionItemViewMvc mvc=new TransactionItemViewImpl(LayoutInflater.from(mContext),parent,viewType);
+        TransactionItemViewMvc mvc=new TransactionItemViewMvcImpl(LayoutInflater.from(mContext),parent,viewType);
         mvc.registerListener(this);
         return new MyviewHolder(mvc);
     }

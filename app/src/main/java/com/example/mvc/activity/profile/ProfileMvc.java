@@ -6,7 +6,7 @@ package com.example.mvc.activity.profile;
 
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.mvc.common.ObserVableViewMvc;
+import com.example.mvc.screens.common.views.ObserVableViewMvc;
 
 public interface ProfileMvc extends ObserVableViewMvc<ProfileMvc.Listener> {
     public interface Listener{

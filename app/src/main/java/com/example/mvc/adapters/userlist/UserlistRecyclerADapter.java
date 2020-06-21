@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mvc.fragments.userlist.UserlistMvc;
+import com.example.mvc.screens.fragments.userlist.UserlistMvc;
 import com.example.mvc.models.TransactionModel;
 import com.example.mvc.models.UserModel;
 
@@ -35,7 +35,7 @@ public static final int TYPE_ITEM=0,TYPE_DATE=1;
     @NonNull
     @Override
     public MyviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        UserlistViewMvc mvc=new UserlistViewImpl(LayoutInflater.from(mContext),parent,viewType);
+        UserlistViewMvc mvc=new UserlistViewMvcImpl(LayoutInflater.from(mContext),parent,viewType);
         mvc.registerListener(this);
         return new MyviewHolder(mvc);
     }
